@@ -4,11 +4,11 @@
 #include<math.h>
 #include "Tablero.h"
 
-void OnDraw(void); 
-void OnTimer(int value); 
-void OnKeyboardDown(unsigned char key, int x, int y); 
+void OnDraw(void);
+void OnTimer(int value);
+void OnKeyboardDown(unsigned char key, int x, int y);
 
-
+Tablero tablero;
 
 int main(int argc, char* argv[])
 {
@@ -20,7 +20,15 @@ int main(int argc, char* argv[])
 
 	//glutSetWindow();
 
-	glutPositionWindow(300,50);
+	glutPositionWindow(300, 50);
+
+	//habilitar luces y definir perspectiva
+	glEnable(GL_LIGHT0);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_COLOR_MATERIAL);
+	glMatrixMode(GL_PROJECTION);
+	gluPerspective(33.0, 900 / 700.0f, 0.1, 150);
 
 	//glutFullScreen();
 
@@ -39,14 +47,14 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-tablero.pintar();
+	tablero.pintar();
 
 	glutSwapBuffers();
 }
 
 void OnKeyboardDown(unsigned char key, int x, int y)
 {
-
+	
 }
 
 void OnTimer(int value)
