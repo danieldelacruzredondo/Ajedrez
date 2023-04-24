@@ -2,6 +2,7 @@
 #include<iostream>
 #include<stdlib.h>
 #include<math.h>
+#include "Tablero.h"
 
 void OnDraw(void); 
 void OnTimer(int value); 
