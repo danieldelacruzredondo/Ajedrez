@@ -8,5 +8,4 @@ public:
 	int r, g, b;
 	Tablero();
 	void pintar();
-	void mover(unsigned char key);
 };
