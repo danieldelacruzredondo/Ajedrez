@@ -38,7 +38,7 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-
+tablero.pintar();
 
 	glutSwapBuffers();
 }
