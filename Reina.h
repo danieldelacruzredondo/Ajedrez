@@ -1,11 +1,13 @@
-#include "Vector2D.h"
+#pragma once
+#include "VPosicion.h"
 class Reina
 {
 	Reina();
 	~Reina();
 	bool color; //0 si es blanca y 1 si es negra
-	Vector2D posicion;
+	VPosicion posicion;
 
+	VPosicion getPosicion();
 	void movimiento(float x, float y);
 	void comer(float x, float y, char);
 	void comido(float x, float y, char);
