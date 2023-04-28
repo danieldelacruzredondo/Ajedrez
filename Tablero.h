@@ -5,6 +5,8 @@
 #include"Alfil.h"
 #include"Caballo.h"
 #include"Torre.h"
+#include"Peon.h"
+#include"ListaPeones.h"
 
 class Tablero
 {
@@ -15,6 +17,7 @@ public:
 	Alfil alfil01,alfil02,alfil11,alfil12;
 	Caballo caballo01, caballo02, caballo11, caballo12;
 	Torre torre01, torre02, torre11, torre12;
+	ListaPeones peones;
 
 	float x_ojo = 0;
 	float y_ojo = 0;
@@ -24,3 +27,4 @@ public:
 	void pintar();
 	void inicializar();
 };
+
