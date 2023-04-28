@@ -1,16 +1,12 @@
 #pragma once
-#include "VPosicion.h"
+#include"VPosicion.h"
+
 class Torre
 {
-	Torre();
-	~Torre();
-	bool color; //0 si es blanca y 1 si es negra
-	VPosicion posicion;
-
-	VPosicion getPosicion();
-	void movimiento(float x, float y);
-	void comer(float x, float y);
-	void comido(float x, float y);
+	VPosicion pos;
+	bool color;
+public:
 	void dibuja();
-	
+	void setpos(VPosicion _pos);
+	void setcolor(bool _color);
 };
