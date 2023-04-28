@@ -31,6 +31,7 @@ int main(int argc, char* argv[])
 	gluPerspective(33.0, 900 / 700.0f, 0.1, 150);
 
 	//glutFullScreen();
+	tablero.inicializar();
 
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);
