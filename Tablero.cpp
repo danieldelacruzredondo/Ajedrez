@@ -8,6 +8,18 @@ Tablero::Tablero() {
 	r = g = b = 255;
 }
 
+void Tablero::inicializar()
+{
+	alfil11.setpos(VPosicion{5.0,1});
+	alfil11.setcolor(FALSE);
+	alfil12.setpos(VPosicion{11.0,1});
+	alfil12.setcolor(FALSE);
+	alfil21.setpos(VPosicion{5.0,15});
+	alfil21.setcolor(TRUE);
+	alfil22.setpos(VPosicion{11.0,15});
+	alfil22.setcolor(TRUE);
+}
+
 void Tablero::pintar() {
 
 	gluLookAt(x_ojo, y_ojo, z_ojo,  // posicion del ojo
@@ -20,13 +32,13 @@ void Tablero::pintar() {
 		{
 			if (_y == 0 || _y == 4 || _y == 8 || _y == 12) 
 			{
-				if (_x == 0 || _x == 4 || _x == 8 || _x == 12)r = 230, g = 230, b = 230;
-				else r = 15, g = 15, b = 130;
+				if (_x == 0 || _x == 4 || _x == 8 || _x == 12)r = 15, g = 15, b = 230;
+				else r = 230, g = 230, b = 230;
 			}
 			else 
 			{
-				if (_x == 0 || _x == 4 || _x == 8 || _x == 12)r = 15, g = 15, b = 130;
-				else r = 230, g = 230, b = 230;
+				if (_x == 0 || _x == 4 || _x == 8 || _x == 12)r = 230, g = 230, b = 230;
+				else r = 15, g = 15, b = 230;
 			}
 		glDisable(GL_LIGHTING);
 		glBegin(GL_POLYGON);
@@ -41,4 +53,11 @@ void Tablero::pintar() {
 		}
 	_y += 2.0;
 	}
+
+	reina.dibuja();
+	rey.dibuja();
+	alfil11.dibuja();
+	alfil12.dibuja();
+	alfil21.dibuja();
+	alfil22.dibuja();
 }
