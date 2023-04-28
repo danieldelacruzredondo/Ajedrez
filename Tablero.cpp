@@ -34,6 +34,12 @@ void Tablero::inicializar()
 	torre11.setcolor(TRUE);
 	torre12.setpos(VPosicion{ 15.0,15 });
 	torre12.setcolor(TRUE);
+	for (int i = 0; i < 2*MAX_PEONES; i++) {
+		Peon* aux1 = new Peon{};
+		Peon* aux2 = new Peon{};
+		peones.agregar(aux1,aux2);
+	}
+	peones.inicializa();
 }
 
 void Tablero::pintar() {
@@ -84,4 +90,5 @@ void Tablero::pintar() {
 	torre02.dibuja();
 	torre11.dibuja();
 	torre12.dibuja();
+	peones.dibuja();
 }
