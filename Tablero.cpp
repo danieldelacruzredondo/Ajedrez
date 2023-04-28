@@ -1,4 +1,4 @@
-include "Tablero.h"
+#include "Tablero.h"
 #include "freeglut.h"
 
 Tablero::Tablero() {
@@ -10,30 +10,30 @@ Tablero::Tablero() {
 
 void Tablero::inicializar()
 {
-	alfil11.setpos(VPosicion{5.0,1});
-	alfil11.setcolor(FALSE);
-	alfil12.setpos(VPosicion{11.0,1});
-	alfil12.setcolor(FALSE);
-	alfil21.setpos(VPosicion{5.0,15});
-	alfil21.setcolor(TRUE);
-	alfil22.setpos(VPosicion{11.0,15});
-	alfil22.setcolor(TRUE);
-	caballo11.setpos(VPosicion{ 3.0,1 });
-	caballo11.setcolor(FALSE);
-	caballo12.setpos(VPosicion{ 13.0,1 });
-	caballo12.setcolor(FALSE);
-	caballo21.setpos(VPosicion{ 3.0,15 });
-	caballo21.setcolor(TRUE);
-	caballo22.setpos(VPosicion{ 13.0,15 });
-	caballo22.setcolor(TRUE);
-	torre11.setpos(VPosicion{ 1.0,1 });
-	torre11.setcolor(FALSE);
-	torre12.setpos(VPosicion{ 15.0,1 });
-	torre12.setcolor(FALSE);
-	torre21.setpos(VPosicion{ 1.0,15 });
-	torre21.setcolor(TRUE);
-	torre22.setpos(VPosicion{ 15.0,15 });
-	torre22.setcolor(TRUE);
+	alfil01.setpos(VPosicion{5.0,1});
+	alfil01.setcolor(FALSE);
+	alfil02.setpos(VPosicion{11.0,1});
+	alfil02.setcolor(FALSE);
+	alfil11.setpos(VPosicion{5.0,15});
+	alfil11.setcolor(TRUE);
+	alfil12.setpos(VPosicion{11.0,15});
+	alfil12.setcolor(TRUE);
+	caballo01.setpos(VPosicion{ 3.0,1 });
+	caballo01.setcolor(FALSE);
+	caballo02.setpos(VPosicion{ 13.0,1 });
+	caballo02.setcolor(FALSE);
+	caballo11.setpos(VPosicion{ 3.0,15 });
+	caballo11.setcolor(TRUE);
+	caballo12.setpos(VPosicion{ 13.0,15 });
+	caballo12.setcolor(TRUE);
+	torre01.setpos(VPosicion{ 1.0,1 });
+	torre01.setcolor(FALSE);
+	torre02.setpos(VPosicion{ 15.0,1 });
+	torre02.setcolor(FALSE);
+	torre11.setpos(VPosicion{ 1.0,15 });
+	torre11.setcolor(TRUE);
+	torre12.setpos(VPosicion{ 15.0,15 });
+	torre12.setcolor(TRUE);
 }
 
 void Tablero::pintar() {
@@ -72,16 +72,16 @@ void Tablero::pintar() {
 
 	reina.dibuja();
 	rey.dibuja();
+	alfil01.dibuja();
+	alfil02.dibuja();
 	alfil11.dibuja();
 	alfil12.dibuja();
-	alfil21.dibuja();
-	alfil22.dibuja();
+	caballo01.dibuja();
+	caballo02.dibuja();
 	caballo11.dibuja();
 	caballo12.dibuja();
-	caballo21.dibuja();
-	caballo22.dibuja();
+	torre01.dibuja();
+	torre02.dibuja();
 	torre11.dibuja();
 	torre12.dibuja();
-	torre21.dibuja();
-	torre22.dibuja();
 }
