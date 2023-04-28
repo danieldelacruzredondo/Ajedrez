@@ -12,9 +12,9 @@ public:
 
 	Reina reina;
 	Rey rey;
-	Alfil alfil11,alfil12,alfil21,alfil22;
-	Caballo caballo11, caballo12, caballo21, caballo22;
-	Torre torre11, torre12, torre21, torre22;
+	Alfil alfil01,alfil02,alfil11,alfil12;
+	Caballo caballo01, caballo02, caballo11, caballo12;
+	Torre torre01, torre02, torre11, torre12;
 
 	float x_ojo = 0;
 	float y_ojo = 0;
@@ -24,4 +24,3 @@ public:
 	void pintar();
 	void inicializar();
 };
-
