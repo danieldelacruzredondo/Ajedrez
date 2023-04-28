@@ -1,4 +1,4 @@
-#include "Tablero.h"
+include "Tablero.h"
 #include "freeglut.h"
 
 Tablero::Tablero() {
@@ -18,6 +18,22 @@ void Tablero::inicializar()
 	alfil21.setcolor(TRUE);
 	alfil22.setpos(VPosicion{11.0,15});
 	alfil22.setcolor(TRUE);
+	caballo11.setpos(VPosicion{ 3.0,1 });
+	caballo11.setcolor(FALSE);
+	caballo12.setpos(VPosicion{ 13.0,1 });
+	caballo12.setcolor(FALSE);
+	caballo21.setpos(VPosicion{ 3.0,15 });
+	caballo21.setcolor(TRUE);
+	caballo22.setpos(VPosicion{ 13.0,15 });
+	caballo22.setcolor(TRUE);
+	torre11.setpos(VPosicion{ 1.0,1 });
+	torre11.setcolor(FALSE);
+	torre12.setpos(VPosicion{ 15.0,1 });
+	torre12.setcolor(FALSE);
+	torre21.setpos(VPosicion{ 1.0,15 });
+	torre21.setcolor(TRUE);
+	torre22.setpos(VPosicion{ 15.0,15 });
+	torre22.setcolor(TRUE);
 }
 
 void Tablero::pintar() {
@@ -60,4 +76,12 @@ void Tablero::pintar() {
 	alfil12.dibuja();
 	alfil21.dibuja();
 	alfil22.dibuja();
+	caballo11.dibuja();
+	caballo12.dibuja();
+	caballo21.dibuja();
+	caballo22.dibuja();
+	torre11.dibuja();
+	torre12.dibuja();
+	torre21.dibuja();
+	torre22.dibuja();
 }
