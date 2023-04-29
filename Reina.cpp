@@ -2,13 +2,28 @@
 #include"freeglut.h"
 #include"ETSIDI.h"
 
-ETSIDI:: Sprite spriteq1{ "bin/imagenes/reina_blancas.png", 7.05, 1.1, 11, 3.5}, spriteq2{ "bin/imagenes/reina_negras.png", 7.05, 15.1, 11, 3.5 };
+ETSIDI::Sprite spriteq{ "bin/imagenes/reina_negras.png", 0.0, 0.0, 0.0, 0.0 };
+
+void Reina::setpos(VPosicion _pos)
+{
+	pos = _pos;
+}
+
+void Reina::setcolor(bool _color)
+{
+	color = _color;
+}
 
 void Reina::dibuja()
 {
+
+	if (color)
+		spriteq = { "bin/imagenes/reina_negras.png", pos.x + 0.05f, pos.y + 0.075f , 11, 3.5 };
+	else
+		spriteq = { "bin/imagenes/reina_blancas.png", pos.x + 0.05f, pos.y + 0.12f , 11, 3.5 };
+
 	glPushMatrix();
 	glTranslatef(0, 0, 0.002);
-	spriteq1.draw();
-	spriteq2.draw();
+	spriteq.draw();
 	glPopMatrix();
 }
