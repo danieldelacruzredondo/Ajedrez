@@ -10,6 +10,14 @@ Tablero::Tablero() {
 
 void Tablero::inicializar()
 {
+	rey0.setpos(VPosicion{9,1});
+	rey0.setcolor(FALSE);
+	rey1.setpos(VPosicion{9,15});
+	rey1.setcolor(TRUE);
+	reina0.setpos(VPosicion{ 7, 1 });
+	reina0.setcolor(FALSE);
+	reina1.setpos(VPosicion{ 7, 15 });
+	reina1.setcolor(TRUE);
 	alfil01.setpos(VPosicion{5.0,1});
 	alfil01.setcolor(FALSE);
 	alfil02.setpos(VPosicion{11.0,1});
@@ -76,8 +84,10 @@ void Tablero::pintar() {
 	_y += 2.0;
 	}
 
-	reina.dibuja();
-	rey.dibuja();
+	reina0.dibuja();
+	reina1.dibuja();
+	rey0.dibuja();
+	rey1.dibuja();
 	alfil01.dibuja();
 	alfil02.dibuja();
 	alfil11.dibuja();
