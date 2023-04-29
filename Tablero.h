@@ -12,8 +12,8 @@ class Tablero
 {
 public:
 
-	Reina reina;
-	Rey rey;
+	Reina reina0,reina1;
+	Rey rey0,rey1;
 	Alfil alfil01,alfil02,alfil11,alfil12;
 	Caballo caballo01, caballo02, caballo11, caballo12;
 	Torre torre01, torre02, torre11, torre12;
