@@ -29,17 +29,14 @@ void Peon::dibuja()
 	glPopMatrix();
 }
 
-VPosicion Peon::getpos() { return pos; }
+//VPosicion Peon::getpos() { return pos; }
 
-bool Peon::movimiento (VPosicion* fin)
+bool Peon::movimiento(VPosicion* fin)
 {
 	int i;
 
-	// Obtener posición pieza
-        peon.getpos();
-
 	// los peones blancos solo se mueven hacia arriba y diagonales de arriba derecha / izquierda en caso de haber una pieza negra
-	if (!peon.setcolor())
+	if (color==0)
 	{
 		// MOVIMIENTO 1: máximo 2 casillas hacia delante 
 		if (pos.y == 1 && (fin->y == pos.y + 2 || fin->y == pos.y + 3) && fin->x == pos.x)
@@ -58,7 +55,7 @@ bool Peon::movimiento (VPosicion* fin)
 			//Comprobar si la casilla está ocupada
 		}
 
-	    // COMER PIEZAS NEGRAS: en diagonal un único desplazamiento
+		// COMER PIEZAS NEGRAS: en diagonal un único desplazamiento
 		if (fin->y == pos.y + 2 && (fin->x == pos.x + 2 || fin->x == pos.x - 2) /*&&  Ha detectado una pieza negra */)
 		{
 			return true;
@@ -66,7 +63,7 @@ bool Peon::movimiento (VPosicion* fin)
 	}
 
 	//Los peones negros solo se mueven hacia abajo y diagonales de abaj derecha / izquierda
-	else if (peon.setcolor())
+	else
 	{
 		// MOVIMIENTO 1: máximo 2 casillas hacia delante 
 		if (pos.y == 15 && (fin->y == pos.y - 2 || fin->y == pos.y - 3) && fin->x == pos.x)
