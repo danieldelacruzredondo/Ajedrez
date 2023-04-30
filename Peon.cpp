@@ -29,6 +29,4 @@ void Peon::dibuja()
 	glPopMatrix();
 }
 
-VPosicion getpos();
-
-	friend class VMovimiento;
+VPosicion Peon::getpos() { return pos; }
