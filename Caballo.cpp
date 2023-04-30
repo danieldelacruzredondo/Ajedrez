@@ -28,3 +28,7 @@ void Caballo::dibuja()
 	spritec.draw();
 	glPopMatrix();
 }
+
+VPosicion getpos();
+
+	friend class VMovimiento;
