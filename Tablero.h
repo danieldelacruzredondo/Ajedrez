@@ -1,4 +1,3 @@
-#pragma once
 #include"VPosicion.h"
 #include"Reina.h"
 #include"Rey.h"
@@ -12,12 +11,13 @@ class Tablero
 {
 public:
 
-	Reina reina0,reina1;
-	Rey rey0,rey1;
-	Alfil alfil01,alfil02,alfil11,alfil12;
+	Reina reina0, reina1;
+	Rey rey0, rey1;
+	Alfil alfil01, alfil02, alfil11, alfil12;
 	Caballo caballo01, caballo02, caballo11, caballo12;
 	Torre torre01, torre02, torre11, torre12;
 	ListaPeones peones;
+	
 
 	float x_ojo = 0;
 	float y_ojo = 0;
@@ -26,5 +26,6 @@ public:
 	Tablero();
 	void pintar();
 	void inicializar();
+	
 };
 
