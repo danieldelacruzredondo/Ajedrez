@@ -29,3 +29,7 @@ void Alfil::dibuja()
 	sprite1.draw();
 	glPopMatrix();
 }
+
+VPosicion getpos();
+
+	friend class VMovimiento;
