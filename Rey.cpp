@@ -27,3 +27,7 @@ void Rey::dibuja()
 	spritek.draw();
 	glPopMatrix();
 }
+
+VPosicion getpos();
+
+	friend class VMovimiento;
