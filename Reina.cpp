@@ -40,7 +40,7 @@ bool Reina::movimiento(VPosicion* fin)
     //MOVIMIENTO DERECHA 
     if (pos.x < fin->x && pos.y == fin->y)
     {
-        for (i = pos.x + 1; i <= fin->x; i++)
+        for (i = pos.x + 2; i <= fin->x; i++)
         {
             //Comprobar si la casilla está ocupada
         }
@@ -50,7 +50,7 @@ bool Reina::movimiento(VPosicion* fin)
     //MOVIMIENTO IZQUIERDA  
     if (pos.x > fin->x && pos.y == fin->y)
     {
-        for (i = pos.x - 1; i >= fin->x; i--)
+        for (i = pos.x - 2; i >= fin->x; i--)
         {
             //Comprobar si la casilla está ocupada
         }
@@ -60,7 +60,7 @@ bool Reina::movimiento(VPosicion* fin)
     //MOVIMIENTO ARRIBA  
     if (pos.x == fin->x && pos.y < fin->y)
     {
-        for (i = pos.y + 1; i <= fin->y; i++)
+        for (i = pos.y + 2; i <= fin->y; i++)
         {
             //Comprobar si la casilla está ocupada
         }
@@ -70,7 +70,7 @@ bool Reina::movimiento(VPosicion* fin)
     //MOVIMIENTO ABAJO  
     if (pos.x == fin->x && pos.y > fin->y)
     {
-        for (i = pos.y - 1; i >= fin->y; i--)
+        for (i = pos.y - 2; i >= fin->y; i--)
         {
             //Comprobar si la casilla está ocupada
         }
@@ -83,7 +83,7 @@ bool Reina::movimiento(VPosicion* fin)
     //MOVIMIENTO DERECHA HACIA ARRIBA
     if (pos.x < fin->x && pos.y < fin->y)
     {
-        for (i = pos.x + 1, j = pos.y + 1; i <= fin->x && j <= fin->y; i++, j++)
+        for (i = pos.x + 2, j = pos.y + 2; i <= fin->x && j <= fin->y; i++, j++)
         {
             //Comprobar si la casilla está ocupada
         }
@@ -93,7 +93,7 @@ bool Reina::movimiento(VPosicion* fin)
     //MOVIMIENTO IZQUIERDA HACIA ARRIBA
     if (pos.x > fin->x && pos.y < fin->y)
     {
-        for (i = pos.x - 1, j = pos.y + 1; i >= fin->x && j <= fin->y; i--, j++)
+        for (i = pos.x - 2, j = pos.y + 2; i >= fin->x && j <= fin->y; i--, j++)
         {
             //Comprobar si la casilla está ocupada
         }
@@ -103,7 +103,7 @@ bool Reina::movimiento(VPosicion* fin)
     //MOVIMIENTO DERECHA HACIA ABAJO 
     if (pos.x < fin->x && pos.y > fin->y)
     {
-        for (i = pos.x + 1, j = pos.y - 1; i <= fin->x && j >= fin->y; i++, j--)
+        for (i = pos.x + 2, j = pos.y - 2; i <= fin->x && j >= fin->y; i++, j--)
         {
             //Comprobar si la casilla está ocupada
         }
@@ -113,7 +113,7 @@ bool Reina::movimiento(VPosicion* fin)
     //MOVIMIENTO IZQUIERDA HACIA ABAJO 
     if (pos.x > fin->x && pos.y > fin->y)
     {
-        for (i = pos.x - 1, j = pos.y - 1; i >= fin->x && j >= fin->y; i--, j--)
+        for (i = pos.x - 2, j = pos.y - 2; i >= fin->x && j >= fin->y; i--, j--)
         {
             //Comprobar si la casilla está ocupada
         }
