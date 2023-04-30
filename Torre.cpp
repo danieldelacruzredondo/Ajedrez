@@ -29,6 +29,4 @@ void Torre::dibuja()
 	glPopMatrix();
 }
 
-VPosicion getpos();
-
-	friend class VMovimiento;
+VPosicion Torre::getpos() { return pos; }
