@@ -31,4 +31,48 @@ void Caballo::dibuja()
 
 VPosicion getpos();
 
-	friend class VMovimiento;
+bool Caballo::movimiento(VPosicion* fin)
+{
+  
+    caballo.getpos();
+
+    //EL CABALLO SE MUEVE EN L, 2 posiciones y despues 1
+
+    //MOVIMIENTO DERECHA  
+    if (pos.x + 3 == fin->x)
+    {
+        // movimiento arriba
+        if (pos.y + 2 == fin->y) return true;
+        // movimiento abajo
+        if (pos.y - 2 == fin->y)return true;
+    }
+
+    //MOVIMIENTO IZQUIERDA
+    if (pos.x - 3 == fin->x)
+    {
+        // movimiento arriba
+        if (pos.y + 2 == fin->y)return true;
+        // movimiento abajo
+        if (pos.y - 2 == fin->y)return true;
+    }
+
+    //MOVIMIENTO ARRIBA   
+    if (pos.y + 3 == fin->y)
+    {
+        // movimiento derecha
+        if (pos.x + 2 == fin->x)return true;
+        // movimiento izquierda
+        if (pos.x - 2 == fin->x)return true;
+    }
+
+    // MOVIMIENTO ABAJO 
+    if (pos.y - 3 == fin->y)
+    {
+        // movimiento derecha
+        if (pos.x + 2 == fin->x)return true;
+        // movimiento izquierda
+        if (pos.x - 2 == fin->x)return true;
+    }
+
+    return false;
+}
