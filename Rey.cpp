@@ -28,6 +28,4 @@ void Rey::dibuja()
 	glPopMatrix();
 }
 
-VPosicion getpos();
-
-	friend class VMovimiento;
+VPosicion Rey::getpos() { return pos; }
