@@ -27,3 +27,7 @@ void Reina::dibuja()
 	spriteq.draw();
 	glPopMatrix();
 }
+
+VPosicion getpos();
+
+	friend class VMovimiento;
