@@ -30,3 +30,53 @@ void Torre::dibuja()
 }
 
 VPosicion Torre::getpos() { return pos; }
+
+bool Torre::movimiento(VPosicion* fin)
+{
+    int i;
+
+    // Obtener posición pieza
+    torre.getpos();
+
+    // MOVIMIENTO DERECHA
+    if (pos.x < fin->x && pos.y == fin->y)
+    {
+        for (i = pos.x + 2; i <= fin->x; i++)
+        {
+            //Comprobar si la casilla está ocupada
+        }
+        return true;
+    }
+
+    //MOVIMIENTO IZQUIERDA
+    if (pos.x > fin->x && pos.y == fin->y)
+    {
+        for (i = pos.x - 2; i >= fin->x; i--)
+        {
+            //Comprobar si la casilla está ocupada
+        }
+        return true;
+    }
+
+    //MOVIMIENTO ARRIBA 
+    if (pos.x == fin->x && pos.y < fin->y)
+    {
+        for (i = pos.y + 2; i <= fin->y; i++)
+        {
+            //Comprobar si la casilla está ocupada
+        }
+        return true;
+    }
+
+    // MOVIMIENTO ABAJO
+    if (pos.x == fin->x && pos.y > fin->y)
+    {
+        for (i = pos.y - 2; i >= fin->y; i--)
+        {
+            //Comprobar si la casilla está ocupada
+        }
+        return true;
+    }
+
+    else return false;
+}
