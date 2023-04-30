@@ -1,6 +1,7 @@
 #include"Alfil.h"
 #include"freeglut.h"
 #include"ETSIDI.h"
+#include <math.h>
 
 //ETSIDI_API Sprite(const char *texturePath, float x=0, float y=0, float width=-1, float height=-1);
 //ETSIDI::Sprite sprite{"bin/imagenes/alfil_negras.png", 5.35, 0.9, 11, 3.5};
@@ -31,3 +32,55 @@ void Alfil::dibuja()
 }
 
 VPosicion Alfil::getpos() { return pos; }
+
+bool Alfil::movimiento(VPosicion* fin) 
+{
+    int i, j;
+
+    alfil.getpos();
+
+    // Si no está en la diagonal
+    if (fabs(fin->x - pos.x) != fabs(fin->y - pos.y)) return false;
+
+    //MOVIMIENTO DERECHA HACIA ARRIBA
+    if (pos.x < fin->x && pos.y < fin->y)
+    {
+        for (i = pos.x + 2, j = pos.y + 2; i <= fin->x && j <= fin->y; i++, j++)
+        {
+            //Comprobar si la casilla está ocupada
+        }
+        return true;
+    }
+
+    //MOVIMIENTO IZQUIERDA HACIA ARRIBA    
+    if (pos.x > fin->x && pos.y < fin->y)
+    {
+        for (i = pos.x - 2, j = pos.y + 2; i >= fin->x && j <= fin->y; i--, j++)
+        {
+            //Comprobar si la casilla está ocupada
+        }
+        return true;
+    }
+
+    //MOVIMIENTO DERECHA HACIA ABAJO
+    if (pos.x < fin->x && pos.y > fin->y)
+    {
+        for (i = pos.x + 2, j = pos.y - 2; i <= fin->x && j >= fin->y; i++, j--)
+        {
+            //Comprobar si la casilla está ocupada
+        }
+        return true;
+    }
+
+    // MOVIMIENTO IZQUIERDA HACIA ABAJO 
+    if (pos.x > fin->x && pos.y > fin->y)
+    {
+        for (i = pos.x - 2, j = pos.y - 2; i >= fin->x && j >= fin->y; i--, j--)
+        {
+            //Comprobar si la casilla está ocupada
+        }
+        return true;
+    }
+
+    else return false;
+}
