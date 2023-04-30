@@ -30,3 +30,65 @@ void Peon::dibuja()
 }
 
 VPosicion Peon::getpos() { return pos; }
+
+bool Peon::movimiento (VPosicion* fin)
+{
+	int i, j;
+
+	// Obtener posición pieza
+    peon = getpos();
+
+	// los peones blancos solo se mueven hacia arriba y diagonales de arriba derecha / izquierda en caso de haber una pieza negra
+	if (peon.setcolor())
+	{
+		// MOVIMIENTO 1: máximo 2 casillas hacia delante 
+		if (pos.y == 1 && (fin->y == pos.y + 1 || fin->y == pos.y + 2) && fin->x == pos.x)
+		{
+			for (i = pos.y + 1; i <= fin->y; i++)
+			{
+				//Comprobar si la casilla está ocupada
+			}
+			return true;
+		}
+
+		// SIGUIENTES MOVIMIENTOS: una casilla hacia delante
+		if (fin->y == pos.y + 1 && fin->x == pos.x)
+		{
+			//Comprobar si la casilla está ocupada
+		}
+
+	    // COMER PIEZAS NEGRAS: en diagonal un único desplazamiento
+		if (fin->y == pos.y + 1 && (fin->x == pos.x + 1 || fin->x == pos.x - 1) && /* Ha detectado una pieza negra */)
+		{
+			return true;
+		}
+	}
+
+	//Los peones negros solo se mueven hacia abajo y diagonales de abaj derecha / izquierda
+	else if (!peon.setcolor())
+	{
+		// MOVIMIENTO 1: máximo 2 casillas hacia delante 
+		if (pos.y == 6 && (fin->y == pos.y - 1 || fin->y == pos.y - 2) && fin->x == pos.x)
+		{
+			//bucle para comprobar que el peón no se salta ninguna pieza - cuando se mueve 2 casillas hacia delante
+			for (i = pos.y - 1; i >= fin->y; i--)
+			{
+				//Comprobar si la casilla está ocupada
+			}
+			return true;
+		}
+
+		// SIGUIENTES MOVIMIENTOS: una casilla hacia delante
+		if (fin->y == pos.y - 1 && fin->x == pos.x)
+		{
+			//Comprobar si la casilla está ocupada
+		}
+
+		// COMER PIEZAS NEGRAS: en diagonal un único desplazamiento
+		if (fin->y == pos.y - 1 && (fin->x == pos.x + 1 || fin->x == pos.x - 1) && /* Ha detectado una pieza negra */)
+		{
+			return true;
+		}
+
+	}
+}
