@@ -28,3 +28,7 @@ void Torre::dibuja()
 	spritet.draw();
 	glPopMatrix();
 }
+
+VPosicion getpos();
+
+	friend class VMovimiento;
