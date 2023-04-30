@@ -28,3 +28,7 @@ void Peon::dibuja()
 	spritep.draw();
 	glPopMatrix();
 }
+
+VPosicion getpos();
+
+	friend class VMovimiento;
