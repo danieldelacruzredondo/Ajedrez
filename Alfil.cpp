@@ -30,6 +30,4 @@ void Alfil::dibuja()
 	glPopMatrix();
 }
 
-VPosicion getpos();
-
-	friend class VMovimiento;
+VPosicion Alfil::getpos() { return pos; }
