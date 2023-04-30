@@ -7,34 +7,30 @@ ETSIDI::Sprite spritec{ "bin/imagenes/caballo_negras.png", 0.0, 0.0, 0.0, 0.0 };
 
 void Caballo::setpos(VPosicion _pos)
 {
-	pos = _pos;
+    pos = _pos;
 }
 
 void Caballo::setcolor(bool _color)
 {
-	color = _color;
+    color = _color;
 }
 
 void Caballo::dibuja()
 {
 
-	if (color)
-		spritec = { "bin/imagenes/caballo_negras.png", pos.x , pos.y - 0.1f, 11, 3.5 };
-	else
-		spritec = { "bin/imagenes/caballo_blancas.png", pos.x + 0.35f, pos.y - 0.1f, 11, 3.5 };
+    if (color)
+        spritec = { "bin/imagenes/caballo_negras.png", pos.x , pos.y - 0.1f, 11, 3.5 };
+    else
+        spritec = { "bin/imagenes/caballo_blancas.png", pos.x + 0.35f, pos.y - 0.1f, 11, 3.5 };
 
-	glPushMatrix();
-	glTranslatef(0, 0, 0.002);
-	spritec.draw();
-	glPopMatrix();
+    glPushMatrix();
+    glTranslatef(0, 0, 0.002);
+    spritec.draw();
+    glPopMatrix();
 }
-
-VPosicion getpos();
 
 bool Caballo::movimiento(VPosicion* fin)
 {
-  
-    caballo.getpos();
 
     //EL CABALLO SE MUEVE EN L, 2 posiciones y despues 1
 
