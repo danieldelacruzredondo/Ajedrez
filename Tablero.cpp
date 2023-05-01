@@ -102,3 +102,37 @@ void Tablero::pintar() {
 	torre12.dibuja();
 	peones.dibuja();
 }
+
+void Tablero::elegirficha(int b, int state, int x, int y)
+{
+	float _x = (float)(x - 115) / 42;
+	float _y = -(float)(y - 691) / 44;
+	float j = 0.0, i = 0.0;
+	bool ce = FALSE;
+	bool down = (state == GLUT_DOWN);
+	if (b == GLUT_LEFT_BUTTON && down)
+	{
+		for (j; j < 16.0f; j = j + 2.0f)
+		{
+			for (i = 0.0; i < 16.0f; i = i + 2.0f)
+			{
+				if (_x < i + 2.0f && i < _x && _y < j + 2.0f && j < _y)
+				{
+					ce = TRUE;
+					break;
+				}
+			}
+			if (ce == TRUE)break;
+		}
+	}
+		casilla = VPosicion{ i + 1.0f, j + 1.0f };
+	if (reina0.getpos() == casilla)reina0.setpos(VPosicion{13,7});
+	if (reina1.getpos() == casilla)reina1.setpos(VPosicion{7,5});
+	if (rey0.getpos() == casilla)rey0.setpos(VPosicion{7,5});
+	if (rey1.getpos() == casilla)rey1.setpos(VPosicion{ 7,5 });
+	if (alfil01.getpos() == casilla)alfil01.setpos(VPosicion{ 7,5 });
+	if (alfil02.getpos() == casilla)alfil02.setpos(VPosicion{ 7,5 });
+	if (alfil11.getpos() == casilla)alfil11.setpos(VPosicion{ 7,5 });
+	if (alfil12.getpos() == casilla)alfil12.setpos(VPosicion{ 7,5 });
+}
+
