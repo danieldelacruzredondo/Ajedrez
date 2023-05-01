@@ -57,33 +57,12 @@ void OnDraw(void)
 
 void OnMouseClick(int b, int state, int x, int y) 
 {
-	float _x = (float)(x - 115) / 42;
-	float _y = -(float)(y - 691) / 44;
-	float j = 0.0, i = 0.0;
-	bool ce = FALSE;
-	bool down = (state == GLUT_DOWN);
-	if (b == GLUT_LEFT_BUTTON && down)
-	{
-		for (j; j < 16.0f; j = j + 2.0f)
-		{
-			for (i; i < 16.0f; i = i + 2.0f)
-			{
-				if (_x < i + 2.0f && i < _x && _y < j + 2.0f && j < _y)
-				{
-					ce = TRUE;
-					break;
-				}
-			}
-			if (ce == TRUE)break;
-		}
-		tablero.casilla = VPosicion{ i + 1.0f, j + 1.0f };
-	}
+	tablero.elegirficha(b, state, x, y);
 	glutPostRedisplay();
 }
 
 void OnKeyboardDown(unsigned char key, int x, int y)
 {
-	//if(key=='f')tablero.reina0.setpos(VPosicion{ 7,5 });
 }
 
 void OnTimer(int value)
