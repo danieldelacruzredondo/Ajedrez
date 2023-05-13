@@ -5,16 +5,6 @@
 //ETSIDI::Sprite sprite{"bin/imagenes/alfil_negras.png", 5.35, 0.9, 11, 3.5};
 ETSIDI::Sprite spritec{ "bin/imagenes/caballo_negras.png", 0.0, 0.0, 0.0, 0.0 };
 
-void Caballo::setpos(VPosicion _pos)
-{
-    pos = _pos;
-}
-
-void Caballo::setcolor(bool _color)
-{
-    color = _color;
-}
-
 void Caballo::dibuja()
 {
 
