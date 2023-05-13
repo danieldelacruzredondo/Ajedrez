@@ -3,6 +3,8 @@
 #include "ETSIDI.h"
 #define numFichas=32
 
+//ETSIDI_API Sprite(const char *texturePath, float x=0, float y=0, float width=-1, float height=-1);
+
 class Ficha
 {
 protected:
