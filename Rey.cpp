@@ -2,18 +2,7 @@
 #include"freeglut.h"
 #include"ETSIDI.h"
 
-
 ETSIDI::Sprite spritek{ "bin/imagenes/rey_negras.png", 0.0, 0.0, 0.0, 0.0 };
-
-void Rey::setpos(VPosicion _pos)
-{
-    pos = _pos;
-}
-
-void Rey::setcolor(bool _color)
-{
-    color = _color;
-}
 
 void Rey::dibuja()
 {
