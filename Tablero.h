@@ -6,7 +6,7 @@
 #include"Caballo.h"
 #include"Torre.h"
 #include"Peon.h"
-#include"ListaPeones.h"
+#include"ListaFichas.h"
 
 class Tablero
 {
@@ -15,12 +15,7 @@ class Tablero
 	float z_ojo = 0;
 	int r, g, b;
 
-	Reina reina0,reina1;
-	Rey rey0,rey1;
-	Alfil alfil01,alfil02,alfil11,alfil12;
-	Caballo caballo01, caballo02, caballo11, caballo12;
-	Torre torre01, torre02, torre11, torre12;
-	ListaPeones peones;
+	ListaFichas listafichas;
 
 public:
 
