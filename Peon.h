@@ -1,11 +1,8 @@
 #pragma once
-#include"VPosicion.h"
+#include"Ficha.h"
 
-class Peon
+class Peon:public Ficha
 {
-	VPosicion pos;
-	bool color;
-	
 public:
 	void dibuja();
 	void setpos(VPosicion _pos);
