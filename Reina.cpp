@@ -5,16 +5,6 @@
 
 ETSIDI::Sprite spriteq{ "bin/imagenes/reina_negras.png", 0.0, 0.0, 0.0, 0.0 };
 
-void Reina::setpos(VPosicion _pos)
-{
-    pos = _pos;
-}
-
-void Reina::setcolor(bool _color)
-{
-    color = _color;
-}
-
 void Reina::dibuja()
 {
 
