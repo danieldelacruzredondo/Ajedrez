@@ -2,18 +2,7 @@
 #include"freeglut.h"
 #include"ETSIDI.h"
 
-//ETSIDI::Sprite sprite{"bin/imagenes/alfil_negras.png", 5.35, 0.9, 11, 3.5};
 ETSIDI::Sprite spritep{ "bin/imagenes/alfil_negras.png", 0.0, 0.0, 0.0, 0.0 };
-
-void Peon::setpos(VPosicion _pos)
-{
-	pos = _pos;
-}
-
-void Peon::setcolor(bool _color)
-{
-	color = _color;
-}
 
 void Peon::dibuja()
 {
@@ -28,8 +17,6 @@ void Peon::dibuja()
 	spritep.draw();
 	glPopMatrix();
 }
-
-//VPosicion Peon::getpos() { return pos; }
 
 bool Peon::movimiento(VPosicion* fin)
 {
