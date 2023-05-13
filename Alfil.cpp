@@ -3,7 +3,7 @@
 #include <math.h>
 
 //ETSIDI_API Sprite(const char *texturePath, float x=0, float y=0, float width=-1, float height=-1);
-ETSIDI::Sprite sprite1{ "bin/imagenes/alfil_negras.png", 0.0, 0.0, 0.0, 0.0 };
+ETSIDI::Sprite spritea{ "bin/imagenes/alfil_negras.png", 0.0, 0.0, 0.0, 0.0 };
 
 void Alfil::dibuja()
 {
