@@ -1,7 +1,8 @@
 #include "Tablero.h"
 #include "freeglut.h"
 
-Tablero::Tablero() {
+Tablero::Tablero() 
+{
 	x_ojo = 8.0;
 	y_ojo = 8.0;
 	z_ojo = 28.0;
