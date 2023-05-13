@@ -3,18 +3,7 @@
 #include <math.h>
 
 //ETSIDI_API Sprite(const char *texturePath, float x=0, float y=0, float width=-1, float height=-1);
-//ETSIDI::Sprite sprite{"bin/imagenes/alfil_negras.png", 5.35, 0.9, 11, 3.5};
 ETSIDI::Sprite sprite1{ "bin/imagenes/alfil_negras.png", 0.0, 0.0, 0.0, 0.0 };
-
-void Alfil::setpos(VPosicion _pos)
-{
-    pos = _pos;
-}
-
-void Alfil::setcolor(bool _color)
-{
-    color = _color;
-}
 
 void Alfil::dibuja()
 {
