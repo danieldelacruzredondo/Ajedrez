@@ -1,20 +1,16 @@
 #include"Peon.h"
 #include"freeglut.h"
-#include"ETSIDI.h"
-
-ETSIDI::Sprite spritep{ "bin/imagenes/alfil_negras.png", 0.0, 0.0, 0.0, 0.0 };
-
 void Peon::dibuja()
 {
 
 	if (color)
-		spritep = { "bin/imagenes/peon_negras.png", pos.x + 0.57f, pos.y - 0.1f, 11, 3.5 };
+		sprite = { "bin/imagenes/peon_negras.png", pos.x + 0.57f, pos.y - 0.1f, 11, 3.5 };
 	else
-		spritep = { "bin/imagenes/peon_blancas.png", pos.x + 0.67f, pos.y - 0.23f, 11, 3.5 };
+		sprite = { "bin/imagenes/peon_blancas.png", pos.x + 0.67f, pos.y - 0.23f, 11, 3.5 };
 
 	glPushMatrix();
 	glTranslatef(0, 0, 0.002);
-	spritep.draw();
+	sprite.draw();
 	glPopMatrix();
 }
 
