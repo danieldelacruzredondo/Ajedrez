@@ -3,9 +3,6 @@
 
 class Torre: public Ficha
 {
-	VPosicion pos;
-	bool color;
-	
 public:
 	void dibuja();
 	void setpos(VPosicion _pos) { pos = _pos; }
