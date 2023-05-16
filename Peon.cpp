@@ -22,7 +22,7 @@ bool Peon::movimiento(VPosicion* fin)
 	if (color==0)
 	{
 		// MOVIMIENTO 1: máximo 2 casillas hacia delante 
-		if (pos.y == 1 && (fin->y == pos.y + 2 || fin->y == pos.y + 3) && fin->x == pos.x)
+		if (pos.y == 1 && (fin->y == pos.y + 2 || fin->y == pos.y + 4) && fin->x == pos.x)
 		{
 			//bucle para comprobar que el peón no se salta ninguna pieza - cuando se mueve 2 casillas hacia delante
 			for (i = pos.y + 2; i <= fin->y; i++)
@@ -49,7 +49,7 @@ bool Peon::movimiento(VPosicion* fin)
 	else
 	{
 		// MOVIMIENTO 1: máximo 2 casillas hacia delante 
-		if (pos.y == 15 && (fin->y == pos.y - 2 || fin->y == pos.y - 3) && fin->x == pos.x)
+		if (pos.y == 15 && (fin->y == pos.y - 2 || fin->y == pos.y - 4) && fin->x == pos.x)
 		{
 			//bucle para comprobar que el peón no se salta ninguna pieza - cuando se mueve 2 casillas hacia delante
 			for (i = pos.y - 2; i >= fin->y; i--)
