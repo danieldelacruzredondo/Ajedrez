@@ -24,5 +24,5 @@ public:
 	Tablero();
 	void pintar();
 	void inicializar();
-	void elegirficha(int b, int state, int x, int y);
+	void ElegirCasilla(int b, int state, int x, int y);
 };
