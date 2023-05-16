@@ -89,7 +89,7 @@ void Tablero::pintar() {
 	listafichas.dibuja();
 }
 
-void Tablero::elegirficha(int b, int state, int x, int y)
+void Tablero::ElegirCasilla(int b, int state, int x, int y)
 {
 	float _x = (float)(x - 115) / 42;
 	float _y = -(float)(y - 691) / 44;
@@ -110,6 +110,7 @@ void Tablero::elegirficha(int b, int state, int x, int y)
 			}
 			if (ce == TRUE)break;
 		}
-	}
 		casilla = VPosicion{ i + 1.0f, j + 1.0f };
+		listafichas.ElegirFicha(casilla);
+	}
 }
