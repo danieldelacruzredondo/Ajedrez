@@ -57,7 +57,7 @@ void OnDraw(void)
 
 void OnMouseClick(int b, int state, int x, int y) 
 {
-	tablero.elegirficha(b, state, x, y);
+	tablero.ElegirCasilla(b, state, x, y);
 	glutPostRedisplay();
 }
 
