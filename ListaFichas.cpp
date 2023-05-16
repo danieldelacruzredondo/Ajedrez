@@ -32,3 +32,28 @@ void ListaFichas::dibuja()
 		listafichas[i]->dibuja();
 	}
 }
+
+int ListaFichas::Comprobar_Posicion(VPosicion cas)
+{
+	for (int i = 0; i < NumMax; i++)
+	{
+		if (listafichas[i]->getpos() == cas) return i;
+	}
+	return (NumMax);
+}
+
+void ListaFichas::ElegirFicha(VPosicion cas)
+{
+	if (Comprobar_Posicion(cas) < NumMax)
+	{
+		casillafi = Comprobar_Posicion(cas);
+	}
+	else
+	{
+		if (casillafi < NumMax && listafichas[casillafi]->getcolor() == turno)
+		{
+			listafichas[casillafi]->mueve(cas);
+			turno = turno - 1;
+		}
+	}
+}
