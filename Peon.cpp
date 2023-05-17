@@ -16,60 +16,65 @@ void Peon::dibuja()
 
 bool Peon::movimiento(VPosicion* fin)
 {
-	int i;
-
-	// los peones blancos solo se mueven hacia arriba y diagonales de arriba derecha / izquierda en caso de haber una pieza negra
-	if (color==0)
+	// los peones blancos solo se mueven hacia arriba
+	if (color == 0)
 	{
 		// MOVIMIENTO 1: máximo 2 casillas hacia delante 
-		if (pos.y == 1 && (fin->y == pos.y + 2 || fin->y == pos.y + 4) && fin->x == pos.x)
+		if (pos.y == 3 && (fin.y == pos.y + 2 || fin.y == pos.y + 4) && fin.x == pos.x)
 		{
-			//bucle para comprobar que el peón no se salta ninguna pieza - cuando se mueve 2 casillas hacia delante
-			for (i = pos.y + 2; i <= fin->y; i++)
+			//comprobar que el peón no se salta ninguna pieza - cuando se mueve 2 casillas hacia delante
+			if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y + 2) }) < 32)return false;
+			//Movimiento del peon si se ha elegido mover 2 casillas.
+			if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y + 4) }) == 32 && fin == VPosicion{ pos.x,pos.y + 4 })
 			{
-				//Comprobar si la casilla está ocupada
+				pos = fin;
+				return true;
 			}
+		}
+		// Movimientos del peon si se ha elegido mover una casilla.
+		if (fin.y == pos.y + 2 && fin.x == pos.x)
+		{
+			if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y + 2) }) < 32)return false;
+			pos = fin;
 			return true;
 		}
-
-		// SIGUIENTES MOVIMIENTOS: una casilla hacia delante
-		if (fin->y == pos.y + 2 && fin->x == pos.x)
-		{
-			//Comprobar si la casilla está ocupada
-		}
+		else return false;
 
 		// COMER PIEZAS NEGRAS: en diagonal un único desplazamiento
-		if (fin->y == pos.y + 2 && (fin->x == pos.x + 2 || fin->x == pos.x - 2) /*&&  Ha detectado una pieza negra */)
+		//if (fin.y == pos.y + 2 && (fin.x == pos.x + 2 || fin.x == pos.x - 2) && ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,(pos.y + 2) })<32 && ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,(pos.y + 2) }) < 32)
 		{
-			return true;
+			//return true;
 		}
 	}
-
-	//Los peones negros solo se mueven hacia abajo y diagonales de abaj derecha / izquierda
+	//Los peones negros solo se mueven hacia abajo 
 	else
 	{
 		// MOVIMIENTO 1: máximo 2 casillas hacia delante 
-		if (pos.y == 15 && (fin->y == pos.y - 2 || fin->y == pos.y - 4) && fin->x == pos.x)
+		if (pos.y == 13 && (fin.y == pos.y - 2 || fin.y == pos.y - 4) && fin.x == pos.x)
 		{
-			//bucle para comprobar que el peón no se salta ninguna pieza - cuando se mueve 2 casillas hacia delante
-			for (i = pos.y - 2; i >= fin->y; i--)
+			//comprobar que el peón no se salta ninguna pieza - cuando se mueve 2 casillas hacia delante
+			if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y - 2) }) < 32)return false;
+			// Movimiento del peon si se ha elegido mover 2 casillas.
+			if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y - 4) }) == 32 && VPosicion{ pos.x,pos.y - 4 } == fin)
 			{
-				//Comprobar si la casilla está ocupada
+				pos = fin;
+				return true;
 			}
+		}
+		// Movimiento del peon si se ha elegido mover una casilla.
+		if (fin.y == pos.y - 2 && fin.x == pos.x)
+		{
+			if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y - 2) }) < 32)return false;
+			pos = fin;
 			return true;
 		}
-
-		// SIGUIENTES MOVIMIENTOS: una casilla hacia delante
-		if (fin->y == pos.y - 2 && fin->x == pos.x)
-		{
-			//Comprobar si la casilla está ocupada
-		}
+		else return false;
 
 		// COMER PIEZAS NEGRAS: en diagonal un único desplazamiento
-		if (fin->y == pos.y - 2 && (fin->x == pos.x + 2 || fin->x == pos.x - 2)/* &&  Ha detectado una pieza negra */)
+		//if (fin.y == pos.y - 2 && (fin.x == pos.x + 2 || fin.x == pos.x - 2)/* &&  Ha detectado una pieza negra */)
 		{
-			return true;
+			//return true;
 		}
-
 	}
+
 }
