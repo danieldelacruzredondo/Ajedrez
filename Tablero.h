@@ -16,10 +16,9 @@ class Tablero
 	int r, g, b;
 
 	ListaFichas listafichas;
+	VPosicion casilla;
 
 public:
-
-	VPosicion casilla;
 
 	Tablero();
 	void pintar();
