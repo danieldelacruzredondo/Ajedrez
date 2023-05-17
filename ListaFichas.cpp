@@ -9,7 +9,7 @@ void ListaFichas::agregar(Ficha* _ficha)
 	}
 }
 
-void ListaFichas::inicializa()
+void ListaFichas::inicializar()
 {
 	float j = 1;
 	for (int i = 0; i < NumMax; i++)
@@ -25,11 +25,15 @@ void ListaFichas::inicializa()
 	}
 }
 
-void ListaFichas::dibuja()
+void ListaFichas::dibujar()
 {
 	for (int i = 0; i < NumMax; i++)
 	{
 		listafichas[i]->dibuja();
+	}
+	if (casillafi < NumMax)
+	{
+		listafichas[casillafi]->getpos();
 	}
 }
 
@@ -44,16 +48,17 @@ int ListaFichas::Comprobar_Posicion(VPosicion cas)
 
 void ListaFichas::ElegirFicha(VPosicion cas)
 {
-	if (Comprobar_Posicion(cas) < NumMax)
+	if (Comprobar_Posicion(cas) < NumMax && listafichas[Comprobar_Posicion(cas)]->getcolor() == turno)
 	{
 		casillafi = Comprobar_Posicion(cas);
 	}
-	else
+	if (Comprobar_Posicion(cas) == NumMax && casillafi < NumMax)
 	{
-		if (casillafi < NumMax && listafichas[casillafi]->getcolor() == turno)
-		{
-			listafichas[casillafi]->mueve(cas);
-			turno = turno - 1;
-		}
+			if (listafichas[casillafi]->mueve(cas))
+			{
+				turno = turno - 1;
+				casillafi = NumMax;
+			}
 	}
+	
 }
