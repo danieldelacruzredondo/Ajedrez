@@ -1,11 +1,11 @@
 #pragma once
 #include"Ficha.h"
 
-class Alfil:public Ficha
+class Alfil :public Ficha
 {
 public:
 	void dibuja();
-	bool movimiento(VPosicion* fin);
+	bool mueve(VPosicion fin);
 
 	friend class VMovimiento;
 };
