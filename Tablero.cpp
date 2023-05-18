@@ -135,8 +135,8 @@ void Tablero::pintar() {
 
 void Tablero::ElegirCasilla(int b, int state, int x, int y)
 {
-	float _x = (float)(x - 115) / 42;
-	float _y = -(float)(y - 691) / 44;
+	float _x = (float)(x - 422)*16 / 674;
+	float _y = -(float)(y - 768)*16 / 675;
 	float j = 0.0, i = 0.0;
 	bool ce = FALSE;
 	bool down = (state == GLUT_DOWN);
