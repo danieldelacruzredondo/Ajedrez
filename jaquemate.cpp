@@ -19,9 +19,7 @@ int main(int argc, char* argv[])
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutCreateWindow("Ajedrez");
 
-	//glutSetWindow();
-
-	glutPositionWindow(300, 50);
+	glutFullScreen();
 
 	//habilitar luces y definir perspectiva
 	glEnable(GL_LIGHT0);
@@ -29,10 +27,9 @@ int main(int argc, char* argv[])
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_COLOR_MATERIAL);
 	glMatrixMode(GL_PROJECTION);
-	gluPerspective(33.0, 900 / 700.0f, 0.1, 150);
+	gluPerspective(33.0, 1250 / 700.0f, 0.1, 150);
 
-	//glutFullScreen();
-	tablero.inicializar();
+	tablero.Inicializar();
 
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);
@@ -50,7 +47,7 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	tablero.pintar();
+	tablero.Pintar();
 
 	glutSwapBuffers();
 }
