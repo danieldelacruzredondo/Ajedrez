@@ -3,9 +3,9 @@
 
 Tablero::Tablero() 
 {
-	x_ojo = 8.0;
+	x_ojo = 8.2;
 	y_ojo = 8.0;
-	z_ojo = 28.0;
+	z_ojo = 34.5;
 	r = g = b = 255;
 }
 
