@@ -13,18 +13,18 @@ void Tablero::inicializar()
 {
 	Torre* auxt1 = new Torre{};
 	listafichas.agregar(auxt1);
-	Alfil* auxa1 = new Alfil{};
-	listafichas.agregar(auxa1);
 	Caballo* auxc1 = new Caballo{};
 	listafichas.agregar(auxc1);
+	Alfil* auxa1 = new Alfil{};
+	listafichas.agregar(auxa1);
 	Reina* auxq1 = new Reina{};
 	listafichas.agregar(auxq1);
 	Rey* auxk1 = new Rey{};
 	listafichas.agregar(auxk1);
-	Caballo* auxc2 = new Caballo{};
-	listafichas.agregar(auxc2);
 	Alfil* auxa2 = new Alfil{};
 	listafichas.agregar(auxa2);
+	Caballo* auxc2 = new Caballo{};
+	listafichas.agregar(auxc2);
 	Torre* auxt2 = new Torre{};
 	listafichas.agregar(auxt2);
 	for (int i = 0; i < 16; i++)
@@ -34,18 +34,18 @@ void Tablero::inicializar()
 	}
 	Torre* auxt3 = new Torre{};
 	listafichas.agregar(auxt3);
-	Alfil* auxa3 = new Alfil{};
-	listafichas.agregar(auxa3);
 	Caballo* auxc3 = new Caballo{};
 	listafichas.agregar(auxc3);
+	Alfil* auxa3 = new Alfil{};
+	listafichas.agregar(auxa3);
 	Reina* auxr2 = new Reina{};
 	listafichas.agregar(auxr2);
 	Rey* auxk2 = new Rey{};
 	listafichas.agregar(auxk2);
-	Caballo* auxc4 = new Caballo{};
-	listafichas.agregar(auxc4);
 	Alfil* auxa4 = new Alfil{};
 	listafichas.agregar(auxa4);
+	Caballo* auxc4 = new Caballo{};
+	listafichas.agregar(auxc4);
 	Torre* auxt4 = new Torre{};
 	listafichas.agregar(auxt4);
 
