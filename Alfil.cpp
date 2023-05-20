@@ -28,16 +28,16 @@ bool Alfil::mueve(VPosicion fin)
     //MOVIMIENTO DERECHA HACIA ARRIBA
     if (pos.x < fin.x && pos.y < fin.y)
     {
-        for (i = pos.x + 2, j = pos.y + 2; i <= fin.x && j <= fin.y; i+=2, j+=2)
+        for (i = 0, j = 0; i <= fin.x && j <= fin.y; i += 2, j += 2)
         {
-            if (ListaFichas::Comprobar_Posicion(VPosicion{ (i),(j) }) < 32) return false;
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) }) < 32) return false;
             //Comprobar si la casilla está ocupada
-            if (ListaFichas::Comprobar_Posicion(VPosicion{ (i),(j) }) == 32 && fin == VPosicion{ (i),(j) })
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) }) == 32 && fin == VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) })
             {
                 pos = fin;
                 return true;
             }
-            
+
         }
         return false;
     }
@@ -45,17 +45,17 @@ bool Alfil::mueve(VPosicion fin)
     //MOVIMIENTO IZQUIERDA HACIA ARRIBA    
     if (pos.x > fin.x && pos.y < fin.y)
     {
-        for (i = pos.x - 2, j = pos.y + 2; i >= fin.x && j <= fin.y; i-=2, j+=2)
+        for (i = 0, j = 0; i <= fin.x && j <= fin.y; i -= 2, j += 2)
         {
-            if (ListaFichas::Comprobar_Posicion(VPosicion{ (i),(j) }) < 32)return false;
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) }) < 32)return false;
             //Comprobar si la casilla está ocupada
-            if (ListaFichas::Comprobar_Posicion(VPosicion{ (i),(j) }) == 32 && fin == VPosicion{ (i),(j) })
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) }) == 32 && fin == VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) })
             {
                 pos = fin;
                 return true;
             }
-            
-            
+
+
         }
         return false;
     }
@@ -63,16 +63,16 @@ bool Alfil::mueve(VPosicion fin)
     //MOVIMIENTO DERECHA HACIA ABAJO
     if (pos.x < fin.x && pos.y > fin.y)
     {
-        for (i = pos.x + 2, j = pos.y - 2; i <= fin.x && j >= fin.y; i+=2, j-=2)
+        for (i = 0, j = 0; i <= fin.x && j <= fin.y; i += 2, j -= 2)
         {
-            if (ListaFichas::Comprobar_Posicion(VPosicion{ (i),(j) }) < 32)return false;
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) }) < 32)return false;
             //Comprobar si la casilla está ocupada
-            if (ListaFichas::Comprobar_Posicion(VPosicion{ (i),(j) }) == 32 && fin == VPosicion{ (i),(j) })
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) }) == 32 && fin == VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) })
             {
                 pos = fin;
                 return true;
             }
-            
+
         }
         return false;
     }
@@ -80,16 +80,16 @@ bool Alfil::mueve(VPosicion fin)
     // MOVIMIENTO IZQUIERDA HACIA ABAJO 
     if (pos.x > fin.x && pos.y > fin.y)
     {
-        for (i = pos.x - 2, j = pos.y - 2; i >= fin.x && j >= fin.y; i-=2, j-=2)
+        for (i = 0, j = 0; i <= fin.x && j <= fin.y; i -= 2, j -= 2)
         {
-            if (ListaFichas::Comprobar_Posicion(VPosicion{ (i),(j) }) < 32)return false;
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) }) < 32)return false;
             //Comprobar si la casilla está ocupada
-            if (ListaFichas::Comprobar_Posicion(VPosicion{ (i),(j) }) == 32 && fin == VPosicion{ (i),(j) })
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) }) == 32 && fin == VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) })
             {
                 pos = fin;
                 return true;
             }
-            
+
         }
         return false;
     }
