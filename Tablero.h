@@ -21,7 +21,7 @@ class Tablero
 public:
 
 	Tablero();
-	void pintar();
-	void inicializar();
+	void Pintar();
+	void Inicializar();
 	void ElegirCasilla(int b, int state, int x, int y);
 };
