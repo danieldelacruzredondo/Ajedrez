@@ -51,11 +51,11 @@ void ListaFichas::ElegirFicha(VPosicion cas)
 {
 	if (Comprobar_Posicion(cas) < NumMax && listafichas[Comprobar_Posicion(cas)]->getcolor() == turno)
 	{
-		ETSIDI::playMusica("bin/sonidos/Seleccion_casilla.mp3");
 		casillafi = Comprobar_Posicion(cas);
 	}
 	if (casillafi < NumMax)
 	{
+		        ETSIDI::playMusica("bin/sonidos/Seleccion_casilla.mp3");
 			if (listafichas[casillafi]->mueve(cas))
 			{
 				turno = turno - 1;
