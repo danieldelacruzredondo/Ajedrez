@@ -1,7 +1,5 @@
 #include"Reina.h"
 #include"freeglut.h"
-#include <math.h>
-#include "ListaFichas.h"
 
 void Reina::dibuja()
 {
@@ -17,19 +15,28 @@ void Reina::dibuja()
     glPopMatrix();
 }
 
-
 bool Reina::mueve(VPosicion fin)
 {
     float i, j;
 
-    //MOVIMIENTO DERECHA 
+    // MOVIMIENTO DERECHA 
     if (pos.x < fin.x && pos.y == fin.y)
     {
         for (i = 0; i <= fin.x; i += 2)
         {
+            // COMPROBAR SI LA FICHA COME PIEZA.
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2 + i,pos.y }) < 32 && VPosicion{ pos.x + 2 + i, pos.y } == fin)
+            {
+                if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(fin)) != color)
+                {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
+                    pos = fin;
+                    return true;
+                }
+            }
             //Comprobar si la casilla está ocupada
-            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2 + i,pos.y }) < 32)return false;
-            //Comprobar si la casilla está ocupada
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2 + i,pos.y }) < 32 && VPosicion{ pos.x + 2 + i, pos.y} != fin)return false;
+            //Comprobar si puede moverse a la casilla
             if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2 + i,pos.y }) == 32 && fin == VPosicion{ pos.x + 2 + i,pos.y })
             {
                 pos = fin;
@@ -44,123 +51,197 @@ bool Reina::mueve(VPosicion fin)
     {
         for (i = 0; i <= fin.x; i -= 2)
         {
+            // COMPROBAR SI LA FICHA COME PIEZA.
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2 + i,pos.y }) < 32 && VPosicion{ pos.x - 2 + i, pos.y } == fin)
+            {
+                if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(fin)) != color)
+                {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
+                    pos = fin;
+                    return true;
+                }
+            }
             //Comprobar si la casilla está ocupada
-            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2 + i,pos.y }) < 32)return false;
-            //Comprobar si la casilla está ocupada
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2 + i,pos.y }) < 32 && VPosicion{ pos.x - 2 + i, pos.y } != fin)return false;
+            //Comprobar si se puede mover a la casilla
             if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2 + i,pos.y }) == 32 && fin == VPosicion{ pos.x - 2 + i, pos.y })
             {
                 pos = fin;
                 return true;
             }
-            
+
         }
         return false;
     }
-        //MOVIMIENTO ARRIBA  
-        if (pos.x == fin.x && pos.y < fin.y)
+    //MOVIMIENTO ARRIBA  
+    if (pos.x == fin.x && pos.y < fin.y)
+    {
+        for (i = 0; i <= fin.y; i += 2)
         {
-            for (i = 0; i <= fin.y; i += 2)
+            // COMPROBAR SI LA FICHA COME PIEZA.
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x, pos.y + 2 + i }) < 32 && VPosicion{ pos.x, pos.y + 2 + i } == fin)
             {
-                //Comprobar si la casilla está ocupada
-                if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,pos.y + 2 + i }) < 32)return false;
-                //Comprobar si la casilla está ocupada
-                if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,pos.y + 2 + i }) == 32 && fin == VPosicion{ pos.x,pos.y + 2 + i })
+                if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(fin)) != color)
                 {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
                     return true;
                 }
             }
-            return false;
-        }
-
-        //MOVIMIENTO ABAJO  
-        if (pos.x == fin.x && pos.y > fin.y)
-        {
-            for (i = 0; i <= fin.y; i -= 2)
+            //Comprobar si la casilla está ocupada
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x, pos.y + 2 + i }) < 32 && VPosicion{ pos.x, pos.y + 2 + i } != fin)return false;
+            //Comprobar si se puede mover a la casilla
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x, pos.y + 2 + i }) == 32 && fin == VPosicion{ pos.x, pos.y + 2 + i })
             {
-                //Comprobar si la casilla está ocupada
-                if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x, pos.y - 2 + i }) < 32)return false;
-                //Comprobar si la casilla está ocupada
-                if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,pos.y - 2 + i }) == 32 && fin == VPosicion{ pos.x,pos.y - 2 + i })
+                pos = fin;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //MOVIMIENTO ABAJO  
+    if (pos.x == fin.x && pos.y > fin.y)
+    {
+        for (i = 0; i <= fin.y; i -= 2)
+        {
+            // COMPROBAR SI LA FICHA COME PIEZA.
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,pos.y - 2 + i }) < 32 && VPosicion{ pos.x,pos.y - 2 + i } == fin)
+            {
+                if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(fin)) != color)
                 {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
                     return true;
                 }
             }
-            return false;
-        }
-
-        // Si no está en la diagonal
-        if (fabs(fin.x - pos.x) != fabs(fin.y - pos.y)) return false;
-
-        //MOVIMIENTO DERECHA HACIA ARRIBA
-        if (pos.x < fin.x && pos.y < fin.y)
-        {
-            for (i = 0, j = 0; i <= fin.x && j <= fin.y; i += 2, j += 2)
+            //Comprobar si la casilla está ocupada
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x, pos.y - 2 + i }) < 32 && VPosicion{ pos.x,pos.y - 2 + i } != fin)return false;
+            //Comprobar si se puede mover a la casilla
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,pos.y - 2 + i }) == 32 && fin == VPosicion{ pos.x,pos.y - 2 + i })
             {
-                if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) }) < 32) return false;
-                //Comprobar si la casilla está ocupada
-                if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) }) == 32 && fin == VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) })
+                pos = fin;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Si no está en la diagonal
+    if (fabs(fin.x - pos.x) != fabs(fin.y - pos.y)) return false;
+
+    //MOVIMIENTO DERECHA HACIA ARRIBA
+    if (pos.x < fin.x && pos.y < fin.y)
+    {
+        for (i = 0, j = 0; i <= fin.x && j <= fin.y; i += 2, j += 2)
+        {
+            // COMPROBAR SI LA FICHA COME PIEZA.
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) }) < 32 && VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) } == fin)
+            {
+                if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(fin)) != color)
                 {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
                     return true;
                 }
-
             }
-            return false;
-        }
-
-        //MOVIMIENTO IZQUIERDA HACIA ARRIBA    
-        if (pos.x > fin.x && pos.y < fin.y)
-        {
-            for (i = 0, j = 0; i <= fin.x && j <= fin.y; i -= 2, j += 2)
+            //Comprobar si la casilla está ocupada
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) }) < 32 && VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) } != fin)return false;
+            //Comprobar si se puede mover a la casilla
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) }) == 32 && fin == VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) })
             {
-                if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) }) < 32)return false;
-                //Comprobar si la casilla está ocupada
-                if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) }) == 32 && fin == VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) })
+                pos = fin;
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    //MOVIMIENTO IZQUIERDA HACIA ARRIBA    
+    if (pos.x > fin.x && pos.y < fin.y)
+    {
+        for (i = 0, j = 0; i <= fin.x && j <= fin.y; i -= 2, j += 2)
+        {
+            // COMPROBAR SI LA FICHA COME PIEZA.
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) }) < 32 && VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) } == fin)
+            {
+                if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(fin)) != color)
                 {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
                     return true;
                 }
-
-
             }
-            return false;
-        }
-
-        //MOVIMIENTO DERECHA HACIA ABAJO
-        if (pos.x < fin.x && pos.y > fin.y)
-        {
-            for (i = 0, j = 0; i <= fin.x && j <= fin.y; i += 2, j -= 2)
+            //Comprobar si la casilla está ocupada
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) }) < 32 && VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) } != fin)return false;
+            //Comprobar si se puede move a la casilla
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) }) == 32 && fin == VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) })
             {
-                if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) }) < 32)return false;
-                //Comprobar si la casilla está ocupada
-                if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) }) == 32 && fin == VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) })
+                pos = fin;
+                return true;
+            }
+
+
+        }
+        return false;
+    }
+
+    //MOVIMIENTO DERECHA HACIA ABAJO
+    if (pos.x < fin.x && pos.y > fin.y)
+    {
+        for (i = 0, j = 0; i <= fin.x && j <= fin.y; i += 2, j -= 2)
+        {
+            // COMPROBAR SI LA FICHA COME PIEZA.
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) }) < 32 && VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) } == fin)
+            {
+                if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(fin)) != color)
                 {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
                     return true;
                 }
-
             }
-            return false;
-        }
-
-        // MOVIMIENTO IZQUIERDA HACIA ABAJO 
-        if (pos.x > fin.x && pos.y > fin.y)
-        {
-            for (i = 0, j = 0; i <= fin.x && j <= fin.y; i -= 2, j -= 2)
+            //Comprobar si la casilla está ocupada
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) }) < 32 && VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) } != fin)return false;
+            //Comprobar si se puede move a la casilla
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) }) == 32 && fin == VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) })
             {
-                if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) }) < 32)return false;
-                //Comprobar si la casilla está ocupada
-                if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) }) == 32 && fin == VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) })
+                pos = fin;
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    // MOVIMIENTO IZQUIERDA HACIA ABAJO 
+    if (pos.x > fin.x && pos.y > fin.y)
+    {
+        for (i = 0, j = 0; i <= fin.x && j <= fin.y; i -= 2, j -= 2)
+        {
+            // COMPROBAR SI LA FICHA COME PIEZA.
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) }) < 32 && VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) } == fin)
+            {
+                if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(fin)) != color)
                 {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
                     return true;
                 }
-
             }
-            return false;
-        }
+            //Comprobar si la casilla está ocupada
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) }) < 32 && VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) } != fin)return false;
+            //Comprobar si se puede move a la casilla
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) }) == 32 && fin == VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) })
+            {
+                pos = fin;
+                return true;
+            }
 
-        else return false;
+        }
+        return false;
+    }
+
+    else return false;
 }
