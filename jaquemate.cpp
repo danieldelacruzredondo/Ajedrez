@@ -3,13 +3,14 @@
 #include<stdlib.h>
 #include<math.h>
 #include "Tablero.h"
+#include "Coordinador.h"
 
 void OnDraw(void);
 void OnTimer(int value);
 void OnKeyboardDown(unsigned char key, int x, int y);
 void OnMouseClick(int button, int state, int x, int y);
 
-Tablero tablero;
+Coordinador coordinador;
 
 int main(int argc, char* argv[])
 {
@@ -29,8 +30,6 @@ int main(int argc, char* argv[])
 	glMatrixMode(GL_PROJECTION);
 	gluPerspective(33.0, 1250 / 700.0f, 0.1, 150);
 
-	tablero.Inicializar();
-
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);
 	glutKeyboardFunc(OnKeyboardDown);
@@ -47,14 +46,14 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	tablero.Pintar();
+	coordinador.dibujar();
 
 	glutSwapBuffers();
 }
 
 void OnMouseClick(int b, int state, int x, int y) 
 {
-	tablero.ElegirCasilla(b, state, x, y);
+	coordinador.Elegir_modo_juego(b, state, x, y);
 	glutPostRedisplay();
 }
 
