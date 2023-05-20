@@ -53,7 +53,7 @@ void ListaFichas::ElegirFicha(VPosicion cas)
 	{
 		casillafi = Comprobar_Posicion(cas);
 	}
-	if (Comprobar_Posicion(cas) == NumMax && casillafi < NumMax)
+	if (casillafi < NumMax)
 	{
 			if (listafichas[casillafi]->mueve(cas))
 			{
