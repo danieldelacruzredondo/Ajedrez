@@ -1,6 +1,5 @@
 #include"Caballo.h"
 #include"freeglut.h"
-#include "ListaFichas.h"
 
 void Caballo::dibuja()
 {
