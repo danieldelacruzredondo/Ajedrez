@@ -29,6 +29,7 @@ void ListaFichas::dibujar()
 {
 	for (int i = 0; i < NumMax; i++)
 	{
+		if(listafichas[i]->getvida())
 		listafichas[i]->dibuja();
 	}
 	if (casillafi < NumMax)
