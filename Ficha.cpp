@@ -1,11 +1,6 @@
 #include "Ficha.h"
 
-void Ficha::mueve()
+void Ficha::morir()
 {
-
-}
-
-void Ficha::destruyeficha()
-{
-
+	delete this;
 }
