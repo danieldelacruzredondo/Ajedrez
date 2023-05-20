@@ -6,7 +6,5 @@ class Peon:public Ficha
 {
 public:
 	void dibuja();
-	bool movimiento(VPosicion fin);
-
-	friend class VMovimiento;
+	bool mueve(VPosicion fin);
 };
