@@ -1,7 +1,5 @@
 #include"freeglut.h"
-#include <math.h>
 #include "Alfil.h"
-#include "ListaFichas.h"
 
 void Alfil::dibuja()
 {
