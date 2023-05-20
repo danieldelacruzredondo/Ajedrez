@@ -1,5 +1,4 @@
 #include"Reina.h"
-#include"freeglut.h"
 
 void Reina::dibuja()
 {
