@@ -18,10 +18,7 @@ public:
 	void inicializar();
 	void dibujar();
 	int getnumero() { return numero; }
-	static int Comprobar_Posicion(VPosicion cas);
 	void ElegirFicha(VPosicion cas);
-	//bool DestruirFicha(VPosicion finfi);
-	//void PintarCasilla(int _cas);
-
-	friend class Ficha;
+	static int Comprobar_Posicion(VPosicion cas);
+	static void Matar(int num);
 };
