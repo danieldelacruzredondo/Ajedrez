@@ -1,4 +1,3 @@
-#include"freeglut.h"
 #include "Alfil.h"
 
 void Alfil::dibuja()
