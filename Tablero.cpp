@@ -9,7 +9,7 @@ Tablero::Tablero()
 	r = g = b = 255;
 }
 
-void Tablero::inicializar()
+void Tablero::Inicializar()
 {
 	Torre* auxt1 = new Torre{};
 	listafichas.agregar(auxt1);
@@ -49,10 +49,10 @@ void Tablero::inicializar()
 	Torre* auxt4 = new Torre{};
 	listafichas.agregar(auxt4);
 
-	listafichas.inicializa();
+	listafichas.inicializar();
 }
 
-void Tablero::pintar() {
+void Tablero::Pintar() {
 
 	gluLookAt(x_ojo, y_ojo, z_ojo,  // posicion del ojo
 		x_ojo, y_ojo, 0.0,      // hacia que punto mira  (0,0,0) 
@@ -130,7 +130,7 @@ void Tablero::pintar() {
 	glVertex3f(0.0f, 16.0f, 0.0f);
 	glEnd();
 
-	listafichas.dibuja();
+	listafichas.dibujar();
 }
 
 void Tablero::ElegirCasilla(int b, int state, int x, int y)
