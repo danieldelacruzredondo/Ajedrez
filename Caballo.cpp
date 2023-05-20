@@ -1,5 +1,4 @@
 #include"Caballo.h"
-#include"freeglut.h"
 
 void Caballo::dibuja()
 {
