@@ -1,6 +1,4 @@
 #include"Torre.h"
-#include"freeglut.h"
-#include "ListaFichas.h"
 
 void Torre::dibuja()
 {
