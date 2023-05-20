@@ -20,5 +20,6 @@ public:
 	int getnumero() { return numero; }
 	void ElegirFicha(VPosicion cas);
 	static int Comprobar_Posicion(VPosicion cas);
+	static bool Comprobar_Color(int num);
 	static void Matar(int num);
 };
