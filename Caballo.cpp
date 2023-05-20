@@ -1,5 +1,6 @@
 #include"Caballo.h"
 #include"freeglut.h"
+#include "ListaFichas.h"
 
 void Caballo::dibuja()
 {
@@ -15,7 +16,7 @@ void Caballo::dibuja()
     glPopMatrix();
 }
 
-bool Caballo::movimiento(VPosicion fin)
+bool Caballo::mueve(VPosicion fin)
 {
 
     //EL CABALLO SE MUEVE EN L, 2 posiciones y despues 1
@@ -24,101 +25,109 @@ bool Caballo::movimiento(VPosicion fin)
     if (pos.x < fin.x && pos.y < fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{pos.x+4,pos.y + 2}) < 32 )return false;
+        //if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 4,pos.y + 2 }) < 32)return false;
         // movimiento abajo
         if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 4,pos.y + 2 }) == 32) && (fin == (VPosicion{ pos.x + 4,pos.y + 2 })))
         {
-          pos = fin;
-          return true;
+            pos = fin;
+            return true;
         }
+        
     }
 
     //MOVIMIENTO DERECHA 1 ARRIBA 2
     if (pos.x < fin.x && pos.y < fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{pos.x+2,pos.y + 4}) < 32 )return false;
+        
         // movimiento abajo
         if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y + 4 }) == 32) && (fin == (VPosicion{ pos.x + 2,pos.y + 4 })))
         {
-          pos = fin;
-          return true;
+            pos = fin;
+            return true;
         }
+        
     }
     //MOVIMIENTO DERECHA 2 ABAJO 1
-    if (pos.x < fin.x && pos.y < fin.y)
+    if (pos.x < fin.x && pos.y > fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 4,pos.y - 2 }) < 32)return false;
+        
         // movimiento abajo
         if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 4,pos.y - 2 }) == 32) && (fin == (VPosicion{ pos.x + 4,pos.y - 2 })))
         {
             pos = fin;
             return true;
         }
+       
     }
 
     //MOVIMIENTO DERECHA 1 ABAJO 2
-    if (pos.x < fin.x && pos.y < fin.y)
+    if (pos.x < fin.x && pos.y > fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y - 4 }) < 32)return false;
+        
         // movimiento abajo
         if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y - 4 }) == 32) && (fin == (VPosicion{ pos.x + 2,pos.y - 4 })))
         {
             pos = fin;
             return true;
         }
+        
     }
     //MOVIMIENTO IZQUIERDA 1 ARRIBA 2
-    if (pos.x < fin.x && pos.y < fin.y)
+    if (pos.x > fin.x && pos.y < fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y + 4 }) < 32)return false;
+        
         // movimiento abajo
         if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y + 4 }) == 32) && (fin == (VPosicion{ pos.x - 2,pos.y + 4 })))
         {
             pos = fin;
             return true;
         }
+        
     }
 
     //MOVIMIENTO IZQUIERDA 2 ARRIBA 1  
-    if (pos.x < fin.x && pos.y < fin.y)
+    if (pos.x > fin.x && pos.y < fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 4,pos.y + 2 }) < 32)return false;
+        
         // movimiento abajo
         if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 4,pos.y + 2 }) == 32) && (fin == (VPosicion{ pos.x - 4,pos.y + 2 })))
         {
             pos = fin;
             return true;
         }
+        
     }
 
     // MOVIMIENTO IZQUIERDA 1 ABAJO 2 
-    if (pos.x < fin.x && pos.y < fin.y)
+    if (pos.x > fin.x && pos.y > fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y - 4 }) < 32)return false;
+        
         // movimiento abajo
         if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y - 4 }) == 32) && (fin == (VPosicion{ pos.x - 2,pos.y - 4 })))
         {
             pos = fin;
             return true;
         }
+        
     }
     // MOVIMIENTO IZQUIERDA 2 ABAJO 1 
-    if (pos.x < fin.x && pos.y < fin.y)
+    if (pos.x > fin.x && pos.y > fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 4,pos.y - 2 }) < 32)return false;
+        
         // movimiento abajo
         if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 4,pos.y - 2 }) == 32) && (fin == (VPosicion{ pos.x - 4,pos.y - 2 })))
         {
             pos = fin;
             return true;
         }
+        
     }
 
     else return false;
