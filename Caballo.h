@@ -6,7 +6,7 @@ class Caballo:public Ficha
 	
 public:
 	void dibuja();
-	bool movimiento(VPosicion* fin);
+	bool movimiento(VPosicion fin);
 
 	friend class VMovimiento;
 };
