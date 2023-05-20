@@ -5,4 +5,5 @@ public:
 	float x;
 	float y;
 	bool operator ==(VPosicion b);
+	bool operator !=(VPosicion b);
 };
