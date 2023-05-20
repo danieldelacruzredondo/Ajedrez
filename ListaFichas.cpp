@@ -62,3 +62,16 @@ void ListaFichas::ElegirFicha(VPosicion cas)
 	}
 	
 }
+
+bool ListaFichas::Comprobar_Color(int num)
+{
+	int i = num;
+	return listafichas[i]->getcolor();
+}
+
+void ListaFichas::Matar(int num)
+{
+	int i = num;
+	listafichas[i]->morir();
+	listafichas[i]->setmorir();
+}
