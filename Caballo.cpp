@@ -20,101 +20,101 @@ bool Caballo::movimiento(VPosicion fin)
 
     //EL CABALLO SE MUEVE EN L, 2 posiciones y despues 1
 
-    //MOVIMIENTO DERECHA 3 ARRIBA 1
+    //MOVIMIENTO DERECHA 2 ARRIBA 1
     if (pos.x < fin.x && pos.y < fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{pos.x+6,pos.y + 2}) < 32 )return false;
+        if (ListaFichas::Comprobar_Posicion(VPosicion{pos.x+4,pos.y + 2}) < 32 )return false;
         // movimiento abajo
-        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 6,pos.y + 2 }) == 32) && (fin == (VPosicion{ pos.x + 6,pos.y + 2 })))
+        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 4,pos.y + 2 }) == 32) && (fin == (VPosicion{ pos.x + 4,pos.y + 2 })))
         {
           pos = fin;
           return true;
         }
     }
 
-    //MOVIMIENTO DERECHA 1 ARRIBA 3
+    //MOVIMIENTO DERECHA 1 ARRIBA 2
     if (pos.x < fin.x && pos.y < fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{pos.x+2,pos.y + 6}) < 32 )return false;
+        if (ListaFichas::Comprobar_Posicion(VPosicion{pos.x+2,pos.y + 4}) < 32 )return false;
         // movimiento abajo
-        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y + 6 }) == 32) && (fin == (VPosicion{ pos.x + 2,pos.y + 6 })))
+        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y + 4 }) == 32) && (fin == (VPosicion{ pos.x + 2,pos.y + 4 })))
         {
           pos = fin;
           return true;
         }
     }
-    //MOVIMIENTO DERECHA 3 ABAJO 1
+    //MOVIMIENTO DERECHA 2 ABAJO 1
     if (pos.x < fin.x && pos.y < fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 6,pos.y - 2 }) < 32)return false;
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 4,pos.y - 2 }) < 32)return false;
         // movimiento abajo
-        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 6,pos.y - 2 }) == 32) && (fin == (VPosicion{ pos.x + 6,pos.y - 2 })))
+        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 4,pos.y - 2 }) == 32) && (fin == (VPosicion{ pos.x + 4,pos.y - 2 })))
         {
             pos = fin;
             return true;
         }
     }
 
-    //MOVIMIENTO DERECHA 1 ABAJO 3
+    //MOVIMIENTO DERECHA 1 ABAJO 2
     if (pos.x < fin.x && pos.y < fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y - 6 }) < 32)return false;
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y - 4 }) < 32)return false;
         // movimiento abajo
-        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y - 6 }) == 32) && (fin == (VPosicion{ pos.x + 2,pos.y - 6 })))
+        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y - 4 }) == 32) && (fin == (VPosicion{ pos.x + 2,pos.y - 4 })))
         {
             pos = fin;
             return true;
         }
     }
-    //MOVIMIENTO IZQUIERDA 1 ARRIBA 3
+    //MOVIMIENTO IZQUIERDA 1 ARRIBA 2
     if (pos.x < fin.x && pos.y < fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y + 6 }) < 32)return false;
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y + 4 }) < 32)return false;
         // movimiento abajo
-        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y + 6 }) == 32) && (fin == (VPosicion{ pos.x - 2,pos.y + 6 })))
-        {
-            pos = fin;
-            return true;
-        }
-    }
-
-    //MOVIMIENTO IZQUIERDA 3 ARRIBA 1  
-    if (pos.x < fin.x && pos.y < fin.y)
-    {
-        // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 6,pos.y + 2 }) < 32)return false;
-        // movimiento abajo
-        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 6,pos.y + 2 }) == 32) && (fin == (VPosicion{ pos.x - 6,pos.y + 2 })))
+        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y + 4 }) == 32) && (fin == (VPosicion{ pos.x - 2,pos.y + 4 })))
         {
             pos = fin;
             return true;
         }
     }
 
-    // MOVIMIENTO IZQUIERDA 1 ABAJO 3 
+    //MOVIMIENTO IZQUIERDA 2 ARRIBA 1  
     if (pos.x < fin.x && pos.y < fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y - 6 }) < 32)return false;
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 4,pos.y + 2 }) < 32)return false;
         // movimiento abajo
-        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y - 6 }) == 32) && (fin == (VPosicion{ pos.x - 2,pos.y - 6 })))
+        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 4,pos.y + 2 }) == 32) && (fin == (VPosicion{ pos.x - 4,pos.y + 2 })))
         {
             pos = fin;
             return true;
         }
     }
-    // MOVIMIENTO IZQUIERDA 3 ABAJO 1 
+
+    // MOVIMIENTO IZQUIERDA 1 ABAJO 2 
     if (pos.x < fin.x && pos.y < fin.y)
     {
         // movimiento arriba
-        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 6,pos.y - 2 }) < 32)return false;
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y - 4 }) < 32)return false;
         // movimiento abajo
-        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 6,pos.y - 2 }) == 32) && (fin == (VPosicion{ pos.x - 6,pos.y - 2 })))
+        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y - 4 }) == 32) && (fin == (VPosicion{ pos.x - 2,pos.y - 4 })))
+        {
+            pos = fin;
+            return true;
+        }
+    }
+    // MOVIMIENTO IZQUIERDA 2 ABAJO 1 
+    if (pos.x < fin.x && pos.y < fin.y)
+    {
+        // movimiento arriba
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 4,pos.y - 2 }) < 32)return false;
+        // movimiento abajo
+        if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 4,pos.y - 2 }) == 32) && (fin == (VPosicion{ pos.x - 4,pos.y - 2 })))
         {
             pos = fin;
             return true;
