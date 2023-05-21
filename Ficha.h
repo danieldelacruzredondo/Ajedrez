@@ -10,7 +10,9 @@ protected:
 	VPosicion pos;
 	bool vida = true;
 	bool color;
-	char identificador;
+	char identificador; // sirve para diferenciar el tipo de piezas, se inicializan con la primera inicial de las fichas en ingles y mayusculas
+	// Peon = 'P'(Pawn), Rey = 'K'(King), Reina = 'Q'(Queen),
+	// Alfil = 'B'(Bishop), Torre = 'R'(Rook) y Caballo = 'H'(Horse) aunque seria knight, pero, en español se dice caballo.
 	int contmov = 0;
 	ETSIDI::Sprite sprite{ "bin/imagenes/rey_negras.png", 0.0, 0.0, 0.0, 0.0 };
 
@@ -23,8 +25,8 @@ public:
 	void setcolor(bool _color) { color = _color; }
 	VPosicion getpos() { return pos; }
 	bool getcolor() { return color; }
-	void morir();
-	void setmorir() { vida = false; }
+	void morir(); // se elimina la ficha
+	void setmorir() { vida = false; } // se le dice a la ficha que ha puerto
 	bool getvida() { return vida; }
 	void setidentificador(char a) { identificador = a; }
 	char getidentificador() { return identificador; }
