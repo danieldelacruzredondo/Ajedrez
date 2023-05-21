@@ -10,6 +10,8 @@ protected:
 	VPosicion pos;
 	bool vida = true;
 	bool color;
+	char identificador;
+	int contmov = 0;
 	ETSIDI::Sprite sprite{ "bin/imagenes/rey_negras.png", 0.0, 0.0, 0.0, 0.0 };
 
 public:
@@ -24,4 +26,8 @@ public:
 	void morir();
 	void setmorir() { vida = false; }
 	bool getvida() { return vida; }
+	void setidentificador(char a) { identificador = a; }
+	char getidentificador() { return identificador; }
+	void sumcontmov() { contmov++; }
+	int getcontmov() { return contmov; }
 };
