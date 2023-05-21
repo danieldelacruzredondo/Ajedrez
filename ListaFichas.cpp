@@ -29,12 +29,15 @@ void ListaFichas::dibujar()
 {
 	for (int i = 0; i < NumMax; i++)
 	{
+		if (listafichas[i]->getpos().y == 7 && turno == false)
+			listafichas[i]->sumcontmov();
+		if (listafichas[i]->getpos().y == 9 && turno == true)
+			listafichas[i]->sumcontmov();
+	}
+	for (int i = 0; i < NumMax; i++)
+	{
 		if(listafichas[i]->getvida())
 		listafichas[i]->dibuja();
-	}
-	if (casillafi < NumMax)
-	{
-		listafichas[casillafi]->getpos();
 	}
 }
 
