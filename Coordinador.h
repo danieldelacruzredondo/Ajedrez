@@ -12,6 +12,6 @@ public:
 
 protected:
 	Tablero tablero;
-	enum Estado{INICIO, JUEGO};
+	enum Estado{INICIO, JUEGO, SALIR};
 	Estado estado;
 };
