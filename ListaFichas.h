@@ -11,9 +11,9 @@ class ListaFichas
 	int numero = 0;
 	int casillafi = NumMax;
 	bool turno = false;
-	
+
 public:
-	
+
 	void agregar(Ficha* _ficha);
 	void inicializar();
 	void dibujar();
@@ -22,4 +22,7 @@ public:
 	static int Comprobar_Posicion(VPosicion cas);
 	static bool Comprobar_Color(int num);
 	static void Matar(int num);
+	static bool Enroque_Corto(VPosicion enrc);
+	static bool Enroque_Largo(VPosicion enrl);
+
 };
