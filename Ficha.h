@@ -26,7 +26,7 @@ public:
 	VPosicion getpos() { return pos; }
 	bool getcolor() { return color; }
 	void morir(); // se elimina la ficha
-	void setmorir() { vida = false; } // se le dice a la ficha que ha puerto
+	void setmorir() { vida = false; } // se le dice a la ficha que ha muerto
 	bool getvida() { return vida; }
 	void setidentificador(char a) { identificador = a; }
 	char getidentificador() { return identificador; }
