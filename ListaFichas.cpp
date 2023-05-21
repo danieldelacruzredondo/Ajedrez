@@ -101,3 +101,21 @@ bool ListaFichas::Enroque_Largo(VPosicion enrl)
 		}
 	return false;
 }
+
+bool ListaFichas::Comer_al_paso1(VPosicion cap)
+{
+	if (Comprobar_Color(Comprobar_Posicion(cap)) && listafichas[Comprobar_Posicion(cap)]->getidentificador() == 'P' && listafichas[Comprobar_Posicion(cap)]->getcontmov() == 1 && listafichas[Comprobar_Posicion(cap)]->getpos().y == 9)
+	{
+		return true;
+	}
+	else return false;
+}
+
+bool ListaFichas::Comer_al_paso2(VPosicion cap)
+{
+	if (Comprobar_Color(Comprobar_Posicion(cap)) == false && listafichas[Comprobar_Posicion(cap)]->getidentificador() == 'P' && listafichas[Comprobar_Posicion(cap)]->getcontmov() == 1 && listafichas[Comprobar_Posicion(cap)]->getpos().y == 7)
+	{
+		return true;
+	}
+	else return false;
+}
