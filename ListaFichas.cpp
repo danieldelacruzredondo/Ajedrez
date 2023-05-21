@@ -77,3 +77,27 @@ void ListaFichas::Matar(int num)
 	listafichas[i]->morir();
 	listafichas[i]->setmorir();
 }
+
+bool ListaFichas::Enroque_Corto(VPosicion enrc)
+{
+	if(Comprobar_Posicion(VPosicion{ enrc.x + 6, enrc.y }) < 32)
+		if (listafichas[Comprobar_Posicion(VPosicion{ enrc.x + 6, enrc.y })]->getidentificador() == 'R' && listafichas[Comprobar_Posicion(VPosicion{ enrc.x + 6, enrc.y })]->getcontmov() == 0)
+		{
+			listafichas[Comprobar_Posicion(VPosicion{ enrc.x + 6, enrc.y })]->setpos(VPosicion{ enrc.x + 2, enrc.y });
+			//listafichas[Comprobar_Posicion(VPosicion{ enrc.x + 6, enrc.y })]->sumcontmov();
+			return true;
+		}
+	return false;
+}
+
+bool ListaFichas::Enroque_Largo(VPosicion enrl)
+{
+	if (Comprobar_Posicion(VPosicion{ enrl.x - 8, enrl.y }) < 32)
+		if (listafichas[Comprobar_Posicion(VPosicion{ enrl.x - 8, enrl.y })]->getidentificador() == 'R' && listafichas[Comprobar_Posicion(VPosicion{ enrl.x - 8, enrl.y })]->getcontmov() == 0)
+		{
+			listafichas[Comprobar_Posicion(VPosicion{ enrl.x - 8, enrl.y })]->setpos(VPosicion{ enrl.x - 2, enrl.y });
+			//listafichas[Comprobar_Posicion(VPosicion{ enrc.x + 6, enrc.y })]->sumcontmov();
+			return true;
+		}
+	return false;
+}
