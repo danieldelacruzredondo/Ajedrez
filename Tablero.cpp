@@ -38,6 +38,7 @@ void Tablero::Inicializar()
 	for (int i = 0; i < 16; i++)
 	{
 		Peon* auxp = new Peon{};
+		auxp->setidentificador('P');
 		listafichas.agregar(auxp);
 	}
 	Torre* auxt3 = new Torre{};
