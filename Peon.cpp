@@ -21,7 +21,7 @@ bool Peon::mueve(VPosicion fin)
 	if (color == 0)
 	{
 		// SOLO SE VA A MOVER EL PEON.
-		if (ListaFichas::Comprobar_Posicion(VPosicion{ fin }) == 32)
+		if (ListaFichas::Comprobar_Posicion(VPosicion{ fin }) == 32 && (fin == VPosicion{pos.x, pos.y + 2}) || (fin == VPosicion{ pos.x, pos.y + 4 }))
 		{
 			// MOVIMIENTO 1: máximo 2 casillas hacia delante 
 			if (pos.y == 3 && (fin.y == pos.y + 2 || fin.y == pos.y + 4) && fin.x == pos.x)
@@ -32,6 +32,7 @@ bool Peon::mueve(VPosicion fin)
 				if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y + 4) }) == 32 && fin == VPosicion{ pos.x,pos.y + 4 })
 				{
 					pos = fin;
+					contmov++;
 					return true;
 				}
 			}
@@ -40,18 +41,43 @@ bool Peon::mueve(VPosicion fin)
 			{
 				if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y + 2) }) < 32)return false;
 				pos = fin;
+				contmov++;
 				return true;
 			}
 			else return false;
 		}
 
-		// FICHA BLANCA COME FICHA NEGRA EN DIAGONAL.
+		// COMPROBAMOS SI SE QUIERE COMER AL PASO
+		if (fin.y == (pos.y + 2) && fin.x == (pos.x + 2) && ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y }) < 32 && ListaFichas::Comprobar_Posicion(fin) == 32)
+		{
+			if (ListaFichas::Comer_al_paso1(VPosicion{pos.x + 2,pos.y }))
+			{
+				ListaFichas::Matar(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2, pos.y }));
+				pos = fin;
+				contmov++;
+				return true;
+			}
+		}
+		if (fin.y == (pos.y + 2) && fin.x == (pos.x - 2) && ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y }) < 32 && ListaFichas::Comprobar_Posicion(fin) == 32)
+		{
+			if (ListaFichas::Comer_al_paso1(VPosicion{ pos.x - 2, pos.y }))
+			{
+				ListaFichas::Matar(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2, pos.y }));
+				pos = fin;
+				contmov++;
+				return true;
+			}
+		}
+
+		// FICHA BLANCA COME PIEZA NEGRA EN DIAGONAL.
 		if (fin.y == (pos.y + 2) && (fin.x == (pos.x + 2) || fin.x == (pos.x - 2)) && ListaFichas::Comprobar_Posicion(fin) < 32)
 		{
+			// COMPROBAMOS SI PUEDE COMERSE A UNA FICHA DE DIFERENTE COLOR
 			if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(fin)) == true)
 			{
 				ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
 				pos = fin;
+				contmov++;
 				return true;
 			}
 		}
@@ -61,7 +87,7 @@ bool Peon::mueve(VPosicion fin)
 	else
 	{
 		// SOLO SE VA A MOVER EL PEON.
-		if (ListaFichas::Comprobar_Posicion(VPosicion{ fin }) == 32)
+		if (ListaFichas::Comprobar_Posicion(VPosicion{ fin }) == 32 && (fin == VPosicion{ pos.x, pos.y - 2 }) || (fin == VPosicion{ pos.x, pos.y - 4 }))
 		{
 			// MOVIMIENTO 1: máximo 2 casillas hacia delante 
 			if (pos.y == 13 && (fin.y == pos.y - 2 || fin.y == pos.y - 4) && fin.x == pos.x)
@@ -72,6 +98,7 @@ bool Peon::mueve(VPosicion fin)
 				if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y - 4) }) == 32 && VPosicion{ pos.x,pos.y - 4 } == fin)
 				{
 					pos = fin;
+					contmov++;
 					return true;
 				}
 			}
@@ -80,17 +107,42 @@ bool Peon::mueve(VPosicion fin)
 			{
 				if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y - 2) }) < 32)return false;
 				pos = fin;
+				contmov++;
 				return true;
 			}
 			else return false;
 		}
-		// FICHA NEGRA COME FICHA BLANCA EN DIAGONAL.
+
+		// COMPROBAMOS SI SE QUIERE COMER AL PASO
+		if (fin.y == (pos.y - 2) && fin.x == (pos.x + 2) && ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y }) < 32 && ListaFichas::Comprobar_Posicion(fin) == 32)
+		{
+			if (ListaFichas::Comer_al_paso2(VPosicion{ pos.x + 2,pos.y }))
+			{
+				ListaFichas::Matar(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2, pos.y }));
+				pos = fin;
+				contmov++;
+				return true;
+			}
+		}
+		if (fin.y == (pos.y - 2) && fin.x == (pos.x - 2) && ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y }) < 32 && ListaFichas::Comprobar_Posicion(fin) == 32)
+		{
+			if (ListaFichas::Comer_al_paso2(VPosicion{ pos.x - 2, pos.y }))
+			{
+				ListaFichas::Matar(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2, pos.y }));
+				pos = fin;
+				contmov++;
+				return true;
+			}
+		}
+
+		// FICHA NEGRA COME PIEZA NEGRA EN DIAGONAL.
 		if (fin.y == (pos.y - 2) && (fin.x == (pos.x + 2) || fin.x == (pos.x - 2)) && ListaFichas::Comprobar_Posicion(fin) < 32)
 		{
 			if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(fin)) == false)
 			{
 				ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
 				pos = fin;
+				contmov++;
 				return true;
 			}
 		}
