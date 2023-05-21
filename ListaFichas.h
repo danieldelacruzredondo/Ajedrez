@@ -24,5 +24,6 @@ public:
 	static void Matar(int num);
 	static bool Enroque_Corto(VPosicion enrc);
 	static bool Enroque_Largo(VPosicion enrl);
-
+	static bool Comer_al_paso1(VPosicion cap);
+	static bool Comer_al_paso2(VPosicion cap);
 };
