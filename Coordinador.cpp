@@ -77,6 +77,13 @@ void Coordinador::dibujar()
 		ETSIDI::setFont("bin/fuentes/Bitwise.ttf", 18);
 		ETSIDI::printxy("JUGAR", 5, 8);
 		ETSIDI::printxy("SALIR", -5, 8);
+		
+		ETSIDI::setTextColor(255, 255, 255);
+		ETSIDI::setFont("bin/fuentes/Bitwise.ttf", 20);
+		ETSIDI::printxy("Enrique Hernandez", 14, -1);
+		ETSIDI::printxy("Daniel de la Cruz", 14, -2);
+		ETSIDI::printxy("Alberto Escanciano", 14, -3);
+		ETSIDI::printxy("Lucia Pardo", 14, -4);
 
 	}
 	else if (estado == JUEGO)
