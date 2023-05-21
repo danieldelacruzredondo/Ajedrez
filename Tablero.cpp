@@ -12,20 +12,28 @@ Tablero::Tablero()
 void Tablero::Inicializar()
 {
 	Torre* auxt1 = new Torre{};
+	auxt1->setidentificador('R');
 	listafichas.agregar(auxt1);
 	Caballo* auxc1 = new Caballo{};
+	auxc1->setidentificador('H');
 	listafichas.agregar(auxc1);
 	Alfil* auxa1 = new Alfil{};
+	auxa1->setidentificador('B');
 	listafichas.agregar(auxa1);
 	Reina* auxq1 = new Reina{};
+	auxq1->setidentificador('Q');
 	listafichas.agregar(auxq1);
 	Rey* auxk1 = new Rey{};
+	auxk1->setidentificador('K');
 	listafichas.agregar(auxk1);
 	Alfil* auxa2 = new Alfil{};
+	auxa2->setidentificador('B');
 	listafichas.agregar(auxa2);
 	Caballo* auxc2 = new Caballo{};
+	auxc2->setidentificador('H');
 	listafichas.agregar(auxc2);
 	Torre* auxt2 = new Torre{};
+	auxt2->setidentificador('R');
 	listafichas.agregar(auxt2);
 	for (int i = 0; i < 16; i++)
 	{
@@ -33,20 +41,28 @@ void Tablero::Inicializar()
 		listafichas.agregar(auxp);
 	}
 	Torre* auxt3 = new Torre{};
+	auxt3->setidentificador('R');
 	listafichas.agregar(auxt3);
 	Caballo* auxc3 = new Caballo{};
+	auxc3->setidentificador('H');
 	listafichas.agregar(auxc3);
 	Alfil* auxa3 = new Alfil{};
+	auxa3->setidentificador('B');
 	listafichas.agregar(auxa3);
-	Reina* auxr2 = new Reina{};
-	listafichas.agregar(auxr2);
+	Reina* auxq2 = new Reina{};
+	auxq2->setidentificador('Q');
+	listafichas.agregar(auxq2);
 	Rey* auxk2 = new Rey{};
+	auxk2->setidentificador('K');
 	listafichas.agregar(auxk2);
 	Alfil* auxa4 = new Alfil{};
+	auxa4->setidentificador('B');
 	listafichas.agregar(auxa4);
 	Caballo* auxc4 = new Caballo{};
+	auxc4->setidentificador('H');
 	listafichas.agregar(auxc4);
 	Torre* auxt4 = new Torre{};
+	auxt4->setidentificador('R');
 	listafichas.agregar(auxt4);
 
 	listafichas.inicializar();
