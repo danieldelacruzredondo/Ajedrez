@@ -58,7 +58,7 @@ void Coordinador::Elegir_modo_juego(int b, int state, int x, int y)
 		{
 			tablero.ElegirCasilla(b, state, x, y);
 			
-			for (float j = 17.0f; j < 19.0f; j = j + 0.5f)
+			for (float j = 17.5f; j < 19.0f; j = j + 0.5f)
 			{
 				for (float i = 25.5f; i < 28.0f; i = i + 0.5f)
 				{
@@ -104,7 +104,7 @@ void Coordinador::dibujar()
 	{
 		tablero.Pintar();
 		
-		ETSIDI::Sprite sp("bin/imagenes/cerrar_programa.png", 25.7f, 17.5f, 1.5f, 1.5f);
+		ETSIDI::Sprite sp("bin/imagenes/cerrar_programa.png", 26.0f, 17.8f, 1.0f, 1.0f);
 		glPushMatrix();
 		glTranslatef(0, 0, 0.002);
 		sp.draw();
