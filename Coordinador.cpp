@@ -57,6 +57,20 @@ void Coordinador::Elegir_modo_juego(int b, int state, int x, int y)
 		if (b == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 		{
 			tablero.ElegirCasilla(b, state, x, y);
+			
+			for (float j = 17.0f; j < 19.0f; j = j + 0.5f)
+			{
+				for (float i = 25.5f; i < 28.0f; i = i + 0.5f)
+				{
+					if (_x < i + 0.5f && i < _x && _y < j + 0.5f && j < _y)
+					{
+						ce = TRUE;
+						estado = SALIR;
+						break;
+					}
+				}
+				if (ce == TRUE) break;
+			}
 		}
 	}
 	else if (estado == SALIR)
@@ -89,5 +103,11 @@ void Coordinador::dibujar()
 	else if (estado == JUEGO)
 	{
 		tablero.Pintar();
+		
+		ETSIDI::Sprite sp("bin/imagenes/cerrar_programa.png", 25.7f, 17.5f, 1.5f, 1.5f);
+		glPushMatrix();
+		glTranslatef(0, 0, 0.002);
+		sp.draw();
+		glPopMatrix();
 	}
 }
