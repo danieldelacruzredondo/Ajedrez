@@ -42,67 +42,187 @@ bool Rey::mueve(VPosicion fin)
     }
 
     //MOVIMIENTO DERECHA 
-    if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y }) == 32) && (fin == (VPosicion{ pos.x + 2,pos.y })))
+    if (fin == (VPosicion{ pos.x + 2,pos.y }))
     {
-        pos = fin;
-        contmov++;
-        return true;
-    }
-
-    //MOVIMIENTO ARRIBA 
-    if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x ,pos.y + 2 }) == 32) && (fin == (VPosicion{ pos.x ,pos.y + 2 })))
-    {
-        pos = fin;
-        contmov++;
-        return true;
-    }
-
-    //MOVIMIENTO ABAJO 
-    if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x ,pos.y - 2 }) == 32) && (fin == (VPosicion{ pos.x ,pos.y - 2 })))
-    {
-        pos = fin;
-        contmov++;
-        return true;
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y }) < 32)
+        {
+            if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y })) != color)
+            {
+                if (ListaFichas::JAQUE_AL_REY(VPosicion{ pos.x + 2,pos.y }))
+                {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
+                    pos = fin;
+                    return true;
+                }
+            }
+        }
+        else
+        {
+            pos = fin;
+            contmov++;
+            return true;
+        }
     }
 
     //MOVIMIENTO IZQUIERDA 
-    if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y }) == 32) && (fin == (VPosicion{ pos.x - 2,pos.y })))
+    if (fin == (VPosicion{ pos.x - 2,pos.y }))
     {
-        pos = fin;
-        contmov++;
-        return true;
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y }) < 32)
+        {
+            if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y })) != color)
+            {
+                if (ListaFichas::JAQUE_AL_REY(VPosicion{ pos.x - 2,pos.y }))
+                {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
+                    pos = fin;
+                    return true;
+                }
+            }
+        }
+        else
+        {
+            pos = fin;
+            contmov++;
+            return true;
+        }
+    }
+
+    //MOVIMIENTO ARRIBA 
+    if (fin == (VPosicion{ pos.x ,pos.y + 2 }))
+    {
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,pos.y + 2}) < 32)
+        {
+            if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x, pos.y + 2 })) != color)
+            {
+                if (ListaFichas::JAQUE_AL_REY(VPosicion{ pos.x, pos.y + 2}))
+                {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
+                    pos = fin;
+                    return true;
+                }
+            }
+        }
+        else
+        {
+            pos = fin;
+            contmov++;
+            return true;
+        }
+    }
+
+    //MOVIMIENTO ABAJO 
+    if (fin == (VPosicion{ pos.x ,pos.y - 2 }))
+    {
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,pos.y - 2 }) < 32)
+        {
+            if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x ,pos.y - 2})) != color)
+            {
+                if (ListaFichas::JAQUE_AL_REY(VPosicion{ pos.x ,pos.y - 2}))
+                {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
+                        pos = fin;
+                        return true;
+                }
+            }
+        }
+        else
+        {
+            pos = fin;
+            contmov++;
+            return true;
+        }
     }
 
     //MOVIMIENTO DIAGONAL ARRIBA DERECHA
-    if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y + 2 }) == 32) && (fin == (VPosicion{ pos.x + 2,pos.y + 2 })))
+    if (fin == (VPosicion{ pos.x + 2,pos.y + 2 }))
     {
-        pos = fin;
-        contmov++;
-        return true;
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y + 2}) < 32)
+        {
+            if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y + 2})) != color)
+            {
+                if (ListaFichas::JAQUE_AL_REY(VPosicion{ pos.x + 2,pos.y + 2}))
+                {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
+                        pos = fin;
+                        return true;
+                }
+            }
+        }
+        else
+        {
+            pos = fin;
+            contmov++;
+            return true;
+        }
     }
 
     //MOVIMIENTO DIAGONAL ARRIBA IZQUIERDA
-    if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y + 2 }) == 32) && (fin == (VPosicion{ pos.x - 2,pos.y + 2 })))
+    if (fin == (VPosicion{ pos.x - 2,pos.y + 2 }))
     {
-        pos = fin;
-        contmov++;
-        return true;
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y + 2 }) < 32)
+        {
+            if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y + 2 })) != color)
+            {
+                if (ListaFichas::JAQUE_AL_REY(VPosicion{ pos.x - 2,pos.y + 2 }))
+                {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
+                    pos = fin;
+                    return true;
+                }
+            }
+        }
+        else
+        {
+            pos = fin;
+            contmov++;
+            return true;
+        }
     }
 
     //MOVIMIENTO DIAGONAL ABAJO DERECHA
-    if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y - 2 }) == 32) && (fin == (VPosicion{ pos.x + 2,pos.y - 2 })))
+    if (fin == (VPosicion{ pos.x + 2,pos.y - 2 }))
     {
-        pos = fin;
-        contmov++;
-        return true;
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y - 2 }) < 32)
+        {
+            if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y - 2 })) != color)
+            {
+                if (ListaFichas::JAQUE_AL_REY(VPosicion{ pos.x + 2,pos.y - 2 }))
+                {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
+                    pos = fin;
+                    return true;
+                }
+            }
+        }
+        else
+        {
+            pos = fin;
+            contmov++;
+            return true;
+        }
     }
 
     //MOVIMIENTO DIAGONAL ABAJO IZQUIERDA
-    if ((ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y - 2 }) == 32) && (fin == (VPosicion{ pos.x - 2,pos.y - 2 })))
+    if (fin == (VPosicion{ pos.x - 2,pos.y - 2 }))
     {
-        pos = fin;
-        contmov++;
-        return true;
+        if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y - 2 }) < 32)
+        {
+            if (ListaFichas::Comprobar_Color(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2,pos.y - 2 })) != color)
+            {
+                if (ListaFichas::JAQUE_AL_REY(VPosicion{ pos.x - 2,pos.y - 2 }))
+                {
+                    ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
+                    pos = fin;
+                    return true;
+                }
+            }
+        }
+        else
+        {
+            pos = fin;
+            contmov++;
+            return true;
+        }
     }
     return false;
 }
