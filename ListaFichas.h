@@ -15,6 +15,7 @@ class ListaFichas
 public:
 
 	void agregar(Ficha* _ficha);
+	void agregarQ(Ficha* _ficha,int n);
 	void inicializar();
 	void dibujar();
 	int getnumero() { return numero; }
@@ -26,4 +27,5 @@ public:
 	static bool Enroque_Largo(VPosicion enrl);
 	static bool Comer_al_paso1(VPosicion cap);
 	static bool Comer_al_paso2(VPosicion cap);
+	static bool JAQUE_AL_REY(VPosicion _cas);
 };
