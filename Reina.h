@@ -1,7 +1,7 @@
 #pragma once
 #include"Ficha.h"
 
-class Rey : public Ficha
+class Reina : public Ficha
 {
 public:
 	void dibuja();
