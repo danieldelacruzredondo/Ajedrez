@@ -1,5 +1,6 @@
 #pragma once
 #include "Ficha.h"
+#include "Reina.h"
 #define NumMax 32
 
 class VPosicion;
