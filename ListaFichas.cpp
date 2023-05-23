@@ -33,6 +33,32 @@ void ListaFichas::dibujar()
 			listafichas[i]->sumcontmov();
 		if (listafichas[i]->getpos().y == 9 && turno == true)
 			listafichas[i]->sumcontmov();
+		if (listafichas[i]->getidentificador() == 'P' && listafichas[i]->getcolor() == true)
+		{
+			if (listafichas[i]->getpos().y == 1)
+			{
+				VPosicion p = listafichas[i]->getpos();
+				delete listafichas[i];
+				Reina* auxr = new Reina{};
+				auxr->setidentificador('Q');
+				auxr->setpos(p);
+				auxr->setcolor(true);
+				agregarQ(auxr, i);
+			}
+		}
+		if (listafichas[i]->getidentificador() == 'P' && listafichas[i]->getcolor() == false)
+		{
+			if (listafichas[i]->getpos().y == 15)
+			{
+				VPosicion p = listafichas[i]->getpos();
+				delete listafichas[i];
+				Reina* auxr = new Reina{};
+				auxr->setidentificador('Q');
+				auxr->setpos(p);
+				auxr->setcolor(false);
+				agregarQ(auxr, i);
+			}
+		}
 	}
 	for (int i = 0; i < NumMax; i++)
 	{
