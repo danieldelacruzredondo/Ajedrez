@@ -1,5 +1,6 @@
 #pragma once
 #include"Ficha.h"
+#include "ListaFichas.h"
 
 class Reina : public Ficha
 {
