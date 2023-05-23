@@ -122,3 +122,229 @@ bool ListaFichas::Comer_al_paso2(VPosicion cap)
 	}
 	else return false;
 }
+
+bool ListaFichas::JAQUE_AL_REY(VPosicion _cas)
+{
+	VPosicion p = _cas;
+	bool comida = true;
+	
+	// SE COMPRUEBA POR LA DERECHA 
+	for (int i = 0; i < 15 - p.x; i += 2)
+	{
+		if (Comprobar_Posicion(VPosicion{ p.x + i + 2,p.y }) < 32)
+		{
+			if(i == 0)
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y })]->getcolor() != turno)
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y })]->getidentificador() == 'K')
+				{
+					comida = false;
+					break;
+				}
+			if(listafichas[Comprobar_Posicion(VPosicion{ p.x + i + 2,p.y })]->getcolor() != turno)
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x + i + 2,p.y })]->getidentificador() == 'R' || listafichas[Comprobar_Posicion(VPosicion{ p.x + i + 2,p.y })]->getidentificador() == 'Q') comida = false;
+			break;
+		}
+	}
+	// SE COMPRUEBA POR LA IZQUIERDA 
+	for (int i = 0; i <p.x - 1; i += 2)
+	{
+		if (Comprobar_Posicion(VPosicion{ p.x - i - 2,p.y }) < 32)
+		{
+			if(i == 0)
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y })]->getcolor() != turno)
+					if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y })]->getidentificador() == 'K')
+					{
+						comida = false;
+						break;
+					}
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x - i - 2, p.y })]->getcolor() != turno)
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x - i - 2, p.y })]->getidentificador() == 'R' || listafichas[Comprobar_Posicion(VPosicion{ p.x - i - 2, p.y })]->getidentificador() == 'Q') comida = false;
+			break;
+		}
+	}
+	// SE COMPRUEBA POR ARRIBA 
+	for (int i = 0; i < 15 - p.y; i += 2)
+	{
+		if (Comprobar_Posicion(VPosicion{ p.x, p.y + 2 + i}) < 32)
+		{
+			if (i == 0)
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y + 2 })]->getcolor() != turno)
+					if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y + 2 })]->getidentificador() == 'K')
+					{
+						comida = false;
+						break;
+					}
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y + i + 2 })]->getcolor() != turno)
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y + 2 + i })]->getidentificador() == 'R' || listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y + 2 + i })]->getidentificador() == 'Q') comida = false;
+			break;
+		}
+	}
+	// SE COMPRUEBA POR ABAJO
+	for (int i = 0; i < p.y - 1; i += 2)
+	{
+		if (Comprobar_Posicion(VPosicion{ p.x, p.y - 2 - i }) < 32)
+		{
+			if(i == 0)
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y - 2 })]->getcolor() != turno)
+					if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y - 2 })]->getidentificador() == 'K')
+					{
+						comida = false;
+						break;
+					}
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y - i - 2 })]->getcolor() != turno)
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y - 2 - i })]->getidentificador() == 'R' || listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y - 2 - i })]->getidentificador() == 'Q') comida = false;
+			break;
+		}
+	}
+
+	// SE COMPRUEBA POR DIAGONAL DERECHA ARRIBA
+	for (int i = 0, j = 0; i < 15 - p.x || j < 15 - p.y; i += 2, j += 2)
+	{
+		if (Comprobar_Posicion(VPosicion{ p.x + 2 + i, p.y + 2 + i }) < 32)
+		{
+			if (i == 0)
+			{
+				if (turno == false)
+				{
+					if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y + 2 })]->getcolor() == true)
+						if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y + 2 })]->getidentificador() == 'P')
+						{
+							comida = false;
+							break;
+						}
+				}
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y + 2 })]->getcolor() != turno)
+					if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y + 2 })]->getidentificador() == 'K')
+					{
+						comida = false;
+						break;
+					}
+			}
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2 + i, p.y + i + 2 })]->getcolor() != turno)
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2 + i, p.y + 2 + i })]->getidentificador() == 'B' || listafichas[Comprobar_Posicion(VPosicion{ p.x + 2 + i, p.y + 2 + i })]->getidentificador() == 'Q')comida = false;
+			break;
+		}
+	}
+	// SE COMPRUEBA POR DIAGONAL DERECHA ABAJO
+	for (int i = 0, j = 0; i < 15 - p.x || j < p.y - 1; i += 2, j += 2)
+	{
+		if (Comprobar_Posicion(VPosicion{ p.x + 2 + i, p.y - 2 - i }) < 32)
+		{
+			if (i == 0)
+			{
+				if (turno == true)
+				{
+					if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y - 2 })]->getcolor() == false)
+						if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y - 2 })]->getidentificador() == 'P')
+						{
+							comida = false;
+							break;
+						}
+				}
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y - 2 })]->getcolor() != turno)
+					if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y - 2 })]->getidentificador() == 'K')
+					{
+						comida = false;
+						break;
+					}
+			}
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2 + i, p.y - i - 2 })]->getcolor() != turno)
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2 + i, p.y - 2 - i })]->getidentificador() == 'B' || listafichas[Comprobar_Posicion(VPosicion{ p.x + 2 + i, p.y - 2 - i })]->getidentificador() == 'Q') comida = false;
+			break;
+		}
+	}
+	// SE COMPRUEBA POR DIAGONAL IZQUIERDA ABAJO
+	for (int i = 0, j = 0; i < p.x - 1 || j <  p.y - 1; i += 2, j += 2)
+	{
+		if (Comprobar_Posicion(VPosicion{ p.x - 2 - i, p.y - 2 - i }) < 32)
+		{
+			if (i == 0)
+			{
+				if (turno == true)
+				{
+					if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y - 2 })]->getcolor() == false)
+						if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y - 2 })]->getidentificador() == 'P')
+						{
+							comida = false;
+							break;
+						}
+				}
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y - 2 })]->getcolor() != turno)
+					if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y - 2 })]->getidentificador() == 'K')
+					{
+						comida = false;
+						break;
+					}
+			}
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2 - i, p.y - i - 2 })]->getcolor() != turno)
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2 - i, p.y - 2 - i })]->getidentificador() == 'B' || listafichas[Comprobar_Posicion(VPosicion{ p.x - 2 - i, p.y - 2 - i })]->getidentificador() == 'Q') comida = false;
+			break;
+		}
+	}
+	// SE COMPRUEBA POR DIAGONAL IZQUIERDA ARRIBA
+	for (int i = 0, j = 0; i < p.x - 1 || j < 15 - p.y; i += 2, j += 2)
+	{
+		if (Comprobar_Posicion(VPosicion{ p.x - 2 - i, p.y + 2 + i }) < 32)
+		{
+			if (i == 0)
+			{
+				if (turno == false)
+				{
+					if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y + 2 })]->getcolor() == true)
+						if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y + 2 })]->getidentificador() == 'P')
+						{
+							comida = false;
+							break;
+						}
+				}
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y + 2 })]->getcolor() != turno)
+					if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y + 2 })]->getidentificador() == 'K')
+					{
+						comida = false;
+						break;
+					}
+			}
+			if (Comprobar_Posicion(VPosicion{ p.x - 2 - i, p.y + 2 + i }) < 32)
+			{
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2 - i, p.y + i + 2 })]->getcolor() != turno)
+					if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2 - i, p.y + 2 + i })]->getidentificador() == 'B' || listafichas[Comprobar_Posicion(VPosicion{ p.x - 2 - i, p.y + 2 + i })]->getidentificador() == 'Q') comida = false;
+				break;
+			}
+		}
+	}
+
+	// SE COMPRUEBA EN L PARA COMPROBAR SI UN CABALLO ATACA LA CASILLA
+	if (Comprobar_Posicion(VPosicion{ p.x - 2, p.y + 4 }) < 32)
+		if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y + 4 })]->getcolor() != turno)
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y + 4 })]->getidentificador() == 'H')comida = false;
+			
+	if (Comprobar_Posicion(VPosicion{ p.x + 2, p.y + 4 }) < 32)
+		if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y + 4 })]->getcolor() != turno)
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y + 4 })]->getidentificador() == 'H')comida = false;
+
+	if (Comprobar_Posicion(VPosicion{ p.x + 2, p.y - 4 }) < 32)
+		if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y - 4 })]->getcolor() != turno)
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y - 4 })]->getidentificador() == 'H')comida = false;
+
+	if (Comprobar_Posicion(VPosicion{ p.x - 2, p.y - 4 }) < 32)
+		if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y - 4 })]->getcolor() != turno)
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y - 4 })]->getidentificador() == 'H')comida = false;
+
+	if (Comprobar_Posicion(VPosicion{ p.x + 4, p.y + 2 }) < 32)
+		if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 4, p.y + 2 })]->getcolor() != turno)
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 4, p.y + 2 })]->getidentificador() == 'H')comida = false;
+
+	if (Comprobar_Posicion(VPosicion{ p.x + 4, p.y - 2 }) < 32)
+		if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 4, p.y - 2 })]->getcolor() != turno)
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 4, p.y - 2 })]->getidentificador() == 'H')comida = false;
+
+	if (Comprobar_Posicion(VPosicion{ p.x - 4, p.y - 2 }) < 32)
+		if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 4, p.y - 2 })]->getcolor() != turno)
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 4, p.y - 2 })]->getidentificador() == 'H')comida = false;
+
+	if (Comprobar_Posicion(VPosicion{ p.x - 4, p.y + 2 }) < 32)
+		if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 4, p.y + 2 })]->getcolor() != turno)
+			if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 4, p.y + 2 })]->getidentificador() == 'H')comida = false;
+
+	return comida;
+}
