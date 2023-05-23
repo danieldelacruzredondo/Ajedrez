@@ -9,6 +9,10 @@ void ListaFichas::agregar(Ficha* _ficha)
 	}
 }
 
+void ListaFichas::agregarQ(Ficha* _ficha, int n)
+{
+		listafichas[n] = _ficha;
+}
 void ListaFichas::inicializar()
 {
 	float j = 1;
