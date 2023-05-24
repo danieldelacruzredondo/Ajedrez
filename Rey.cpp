@@ -15,7 +15,7 @@ void Rey::dibuja()
 	glPopMatrix();
 }
 
-bool Rey::movimiento(VPosicion fin)
+bool Rey::mueve(VPosicion fin)
 {
     // COMPROBAMOS SI SE QUIERE Y SI SE PUEDE REALIZAR UN ENROQUE CORTO.
     if (fin == VPosicion{ pos.x + 4,pos.y } && (pos.y == 1 || pos.y == 15) && contmov == 0)
