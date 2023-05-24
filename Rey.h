@@ -6,7 +6,7 @@ class Rey: public Ficha
 {
 public:
 	void dibuja();
-	bool movimiento(VPosicion fin);
+	bool mueve(VPosicion fin);
 
 	friend class VMovimiento;
 };
