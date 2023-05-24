@@ -29,6 +29,7 @@ void Coordinador::Elegir_modo_juego(int b, int state, int x, int y)
 					{
 						ce = TRUE;
 						ETSIDI::stopMusica();
+						ETSIDI::play("bin/sonidos/Fondo2.mp3");
 						tablero.Inicializar();
 						estado = JUEGO;
 						break;
@@ -55,7 +56,6 @@ void Coordinador::Elegir_modo_juego(int b, int state, int x, int y)
 	}
 	else if (estado == JUEGO)
 	{
-		ETSIDI::play("bin/sonidos/Fondo2.mp3");
 		if (b == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 		{
 			tablero.ElegirCasilla(b, state, x, y);
