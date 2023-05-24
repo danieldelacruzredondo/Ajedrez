@@ -15,7 +15,7 @@ void Caballo::dibuja()
 	glPopMatrix();
 }
 
-bool Caballo::movimiento(VPosicion fin)
+bool Caballo::mueve(VPosicion fin)
 {
 
     //EL CABALLO SE MUEVE EN L, 2 CASILLAS RECTAS Y 1 A UN LADO.
