@@ -83,13 +83,13 @@ void Coordinador::dibujar()
 {
 	if (estado == INICIO)
 	{
-		gluLookAt(0.0, 0.0, 0.0,
-			0.0, 0.0, 0.0,
+		gluLookAt(0.0, 7.5, 50.0,
+			0.0, 7.5, 0.0,
 			0.0, 1.0, 0.0);
 
-		ETSIDI::setTextColor(0, 255, 0);
-		ETSIDI::setFont("bin/fuentes/Bitwise.ttf", 18);
-		ETSIDI::printxy("JUGAR", 5, 8);
+		ETSIDI::setTextColor(0, 255, 255);
+		ETSIDI::setFont("bin/fuentes/Bitwise.ttf", 72);
+		ETSIDI::printxy("JUGAR", -6, 14);
 		ETSIDI::printxy("SALIR", -5, 8);
 		
 		ETSIDI::setTextColor(255, 255, 255);
