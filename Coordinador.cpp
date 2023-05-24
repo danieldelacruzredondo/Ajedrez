@@ -5,8 +5,10 @@
 Coordinador::Coordinador()
 {
 	estado = INICIO;
-	ETSIDI::playMusica("bin/sonidos/Intro.mp3");
+	ETSIDI::playMusica("bin/sonidos/sonidos_Intro.mp3");
 }
+
+
 
 void Coordinador::Elegir_modo_juego(int b, int state, int x, int y)
 {
@@ -49,15 +51,15 @@ void Coordinador::Elegir_modo_juego(int b, int state, int x, int y)
 				if (ce == TRUE) break;
 			}
 		}
-		
+
 	}
 	else if (estado == JUEGO)
 	{
-		ETSIDI::play("bin/sonidos/Fondo.mp3");
+		ETSIDI::play("bin/sonidos/Fondo2.mp3");
 		if (b == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 		{
 			tablero.ElegirCasilla(b, state, x, y);
-			
+
 			for (float j = 17.5f; j < 19.0f; j = j + 0.5f)
 			{
 				for (float i = 25.5f; i < 28.0f; i = i + 0.5f)
@@ -83,27 +85,27 @@ void Coordinador::dibujar()
 {
 	if (estado == INICIO)
 	{
-		gluLookAt(0.0, 7.5, 50.0,
+		gluLookAt(0.0, 7.5, 40.0,
 			0.0, 7.5, 0.0,
 			0.0, 1.0, 0.0);
 
-		ETSIDI::setTextColor(0, 255, 255);
-		ETSIDI::setFont("bin/fuentes/Bitwise.ttf", 72);
-		ETSIDI::printxy("JUGAR", -6, 14);
-		ETSIDI::printxy("SALIR", -5, 8);
-		
-		ETSIDI::setTextColor(255, 255, 255);
+		ETSIDI::setTextColor(1, 1, 1);
+		ETSIDI::setFont("bin/fuentes/Bitwise.ttf", 30);
+		ETSIDI::printxy("JUGAR", -3, 12.5);
+		ETSIDI::printxy("SALIR", -3, 8);
+
+		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("bin/fuentes/Bitwise.ttf", 20);
-		ETSIDI::printxy("Enrique Hernandez", 14, -1);
-		ETSIDI::printxy("Daniel de la Cruz", 14, -2);
-		ETSIDI::printxy("Alberto Escanciano", 14, -3);
-		ETSIDI::printxy("Lucia Pardo", 14, -4);
+		ETSIDI::printxy("Enrique Hernandez 54667", 11, -1);
+		ETSIDI::printxy("Daniel de la Cruz 54938", 11, -2);
+		ETSIDI::printxy("Alberto Escanciano 54946", 11, -3);
+		ETSIDI::printxy("Lucia Pardo 55396", 11, -4);
 
 	}
 	else if (estado == JUEGO)
 	{
 		tablero.Pintar();
-		
+
 		ETSIDI::Sprite sp("bin/imagenes/cerrar_programa.png", 26.0f, 17.8f, 1.0f, 1.0f);
 		glPushMatrix();
 		glTranslatef(0, 0, 0.002);
