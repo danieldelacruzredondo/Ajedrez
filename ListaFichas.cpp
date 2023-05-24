@@ -163,13 +163,16 @@ bool ListaFichas::JAQUE_AL_REY(VPosicion _cas)
 	{
 		if (Comprobar_Posicion(VPosicion{ p.x + i + 2,p.y }) < 32)
 		{
-			if(i == 0)
-			if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y })]->getcolor() != turno)
-				if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y })]->getidentificador() == 'K')
-				{
-					comida = false;
-					break;
-				}
+			if (i == 0)
+			{
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y })]->getcolor() == turno && listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y })]->getidentificador() == 'K')continue;
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y })]->getcolor() != turno)
+					if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y })]->getidentificador() == 'K')
+					{
+						comida = false;
+						break;
+					}
+			}
 			if(listafichas[Comprobar_Posicion(VPosicion{ p.x + i + 2,p.y })]->getcolor() != turno)
 				if (listafichas[Comprobar_Posicion(VPosicion{ p.x + i + 2,p.y })]->getidentificador() == 'R' || listafichas[Comprobar_Posicion(VPosicion{ p.x + i + 2,p.y })]->getidentificador() == 'Q') comida = false;
 			break;
@@ -180,13 +183,16 @@ bool ListaFichas::JAQUE_AL_REY(VPosicion _cas)
 	{
 		if (Comprobar_Posicion(VPosicion{ p.x - i - 2,p.y }) < 32)
 		{
-			if(i == 0)
+			if (i == 0)
+			{
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y })]->getcolor() == turno && listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y })]->getidentificador() == 'K')continue;
 				if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y })]->getcolor() != turno)
 					if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y })]->getidentificador() == 'K')
 					{
 						comida = false;
 						break;
 					}
+			}
 			if (listafichas[Comprobar_Posicion(VPosicion{ p.x - i - 2, p.y })]->getcolor() != turno)
 				if (listafichas[Comprobar_Posicion(VPosicion{ p.x - i - 2, p.y })]->getidentificador() == 'R' || listafichas[Comprobar_Posicion(VPosicion{ p.x - i - 2, p.y })]->getidentificador() == 'Q') comida = false;
 			break;
@@ -198,12 +204,15 @@ bool ListaFichas::JAQUE_AL_REY(VPosicion _cas)
 		if (Comprobar_Posicion(VPosicion{ p.x, p.y + 2 + i}) < 32)
 		{
 			if (i == 0)
+			{
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y + 2 })]->getcolor() == turno && listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y + 2 })]->getidentificador() == 'K')continue;
 				if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y + 2 })]->getcolor() != turno)
 					if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y + 2 })]->getidentificador() == 'K')
 					{
 						comida = false;
 						break;
 					}
+			}
 			if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y + i + 2 })]->getcolor() != turno)
 				if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y + 2 + i })]->getidentificador() == 'R' || listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y + 2 + i })]->getidentificador() == 'Q') comida = false;
 			break;
@@ -214,13 +223,16 @@ bool ListaFichas::JAQUE_AL_REY(VPosicion _cas)
 	{
 		if (Comprobar_Posicion(VPosicion{ p.x, p.y - 2 - i }) < 32)
 		{
-			if(i == 0)
+			if (i == 0)
+			{
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y - 2 })]->getcolor() == turno && listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y - 2 })]->getidentificador() == 'K')continue;
 				if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y - 2 })]->getcolor() != turno)
 					if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y - 2 })]->getidentificador() == 'K')
 					{
 						comida = false;
 						break;
 					}
+			}
 			if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y - i - 2 })]->getcolor() != turno)
 				if (listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y - 2 - i })]->getidentificador() == 'R' || listafichas[Comprobar_Posicion(VPosicion{ p.x, p.y - 2 - i })]->getidentificador() == 'Q') comida = false;
 			break;
@@ -234,6 +246,7 @@ bool ListaFichas::JAQUE_AL_REY(VPosicion _cas)
 		{
 			if (i == 0)
 			{
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y + 2 })]->getcolor() == turno && listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y + 2 })]->getidentificador() == 'K')continue;
 				if (turno == false)
 				{
 					if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y + 2 })]->getcolor() == true)
@@ -262,6 +275,7 @@ bool ListaFichas::JAQUE_AL_REY(VPosicion _cas)
 		{
 			if (i == 0)
 			{
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y - 2 })]->getcolor() == turno && listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y - 2 })]->getidentificador() == 'K')continue;
 				if (turno == true)
 				{
 					if (listafichas[Comprobar_Posicion(VPosicion{ p.x + 2, p.y - 2 })]->getcolor() == false)
@@ -290,6 +304,7 @@ bool ListaFichas::JAQUE_AL_REY(VPosicion _cas)
 		{
 			if (i == 0)
 			{
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y - 2 })]->getcolor() == turno && listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y - 2 })]->getidentificador() == 'K')continue;
 				if (turno == true)
 				{
 					if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y - 2 })]->getcolor() == false)
@@ -318,6 +333,7 @@ bool ListaFichas::JAQUE_AL_REY(VPosicion _cas)
 		{
 			if (i == 0)
 			{
+				if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y + 2 })]->getcolor() == turno && listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y + 2 })]->getidentificador() == 'K')continue;
 				if (turno == false)
 				{
 					if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2, p.y + 2 })]->getcolor() == true)
@@ -334,12 +350,9 @@ bool ListaFichas::JAQUE_AL_REY(VPosicion _cas)
 						break;
 					}
 			}
-			if (Comprobar_Posicion(VPosicion{ p.x - 2 - i, p.y + 2 + i }) < 32)
-			{
 				if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2 - i, p.y + i + 2 })]->getcolor() != turno)
 					if (listafichas[Comprobar_Posicion(VPosicion{ p.x - 2 - i, p.y + 2 + i })]->getidentificador() == 'B' || listafichas[Comprobar_Posicion(VPosicion{ p.x - 2 - i, p.y + 2 + i })]->getidentificador() == 'Q') comida = false;
 				break;
-			}
 		}
 	}
 
