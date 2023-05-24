@@ -6,15 +6,14 @@
 class VPosicion;
 
 static Ficha* listafichas[NumMax];
+static bool turno = false;
 
 class ListaFichas
 {
 	int numero = 0;
 	int casillafi = NumMax;
-	bool turno = false;
 
 public:
-
 	void agregar(Ficha* _ficha);
 	void agregarQ(Ficha* _ficha,int n);
 	void inicializar();
