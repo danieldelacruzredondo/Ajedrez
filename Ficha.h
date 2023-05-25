@@ -10,6 +10,7 @@ protected:
 	VPosicion pos;
 	bool vida = true;
 	bool color;
+	bool pintar = false;
 	char identificador; // sirve para diferenciar el tipo de piezas, se inicializan con la primera inicial de las fichas en ingles y mayusculas
 	// Peon = 'P'(Pawn), Rey = 'K'(King), Reina = 'Q'(Queen),
 	// Alfil = 'B'(Bishop), Torre = 'R'(Rook) y Caballo = 'H'(Horse) aunque seria knight, pero, en español se dice caballo.
@@ -25,6 +26,8 @@ public:
 	void setcolor(bool _color) { color = _color; }
 	VPosicion getpos() { return pos; }
 	bool getcolor() { return color; }
+	bool getPintarCasilla() {return pintar;}
+	void setPintarCasilla() { pintar -= 1; }
 	void morir(); // se elimina la ficha
 	void setmorir() { vida = false; } // se le dice a la ficha que ha muerto
 	bool getvida() { return vida; }
