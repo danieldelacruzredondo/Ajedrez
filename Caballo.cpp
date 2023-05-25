@@ -40,6 +40,7 @@ bool Caballo::mueve(VPosicion fin)
         {
             ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
             pos = fin;
+            pintar -= 1;
             return true;
         }
     }
