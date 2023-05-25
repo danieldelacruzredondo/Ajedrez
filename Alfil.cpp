@@ -57,6 +57,7 @@ bool Alfil::mueve(VPosicion fin)
             if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) }) == 32 && fin == VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) })
             {
                 pos = fin;
+                pintar -= 1;
                 return true;
             }
 
@@ -107,6 +108,7 @@ bool Alfil::mueve(VPosicion fin)
                 {
                     ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
+                    pintar -= 1;
                     return true;
                 }
             }
