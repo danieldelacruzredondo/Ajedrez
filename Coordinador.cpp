@@ -95,7 +95,7 @@ void Coordinador::dibujar()
 		ETSIDI::printxy("SALIR", -3, 8);
 
 		ETSIDI::setTextColor(1, 1, 0);
-		ETSIDI::setFont("bin/fuentes/Bitwise.ttf", 20);
+		ETSIDI::setFont("bin/fuentes/Tablero.ttf", 20);
 		ETSIDI::printxy("Enrique Hernandez 54667", 11, -1);
 		ETSIDI::printxy("Daniel de la Cruz 54938", 11, -2);
 		ETSIDI::printxy("Alberto Escanciano 54946", 11, -3);
@@ -105,6 +105,44 @@ void Coordinador::dibujar()
 	else if (estado == JUEGO)
 	{
 		tablero.Pintar();
+		
+		ETSIDI::setTextColor(0, 0, 0);
+		ETSIDI::setFont("bin/fuentes/Tablero.ttf", 36);
+		ETSIDI::printxy("A", 1, -1);
+		ETSIDI::printxy("B", 3, -1);
+		ETSIDI::printxy("C", 5, -1);
+		ETSIDI::printxy("D", 7, -1);
+		ETSIDI::printxy("E", 9, -1);
+		ETSIDI::printxy("F", 11, -1);
+		ETSIDI::printxy("G", 13, -1);
+		ETSIDI::printxy("H", 15, -1);
+
+		ETSIDI::printxy("A", 1, 16);
+		ETSIDI::printxy("B", 3, 16);
+		ETSIDI::printxy("C", 5, 16);
+		ETSIDI::printxy("D", 7, 16);
+		ETSIDI::printxy("E", 9, 16);
+		ETSIDI::printxy("F", 11, 16);
+		ETSIDI::printxy("G", 13, 16);
+		ETSIDI::printxy("H", 15, 16);
+
+		ETSIDI::printxy("1", -1, 0);
+		ETSIDI::printxy("2", -1, 2);
+		ETSIDI::printxy("3", -1, 4);
+		ETSIDI::printxy("4", -1, 6);
+		ETSIDI::printxy("5", -1, 8);
+		ETSIDI::printxy("6", -1, 10);
+		ETSIDI::printxy("7", -1, 12);
+		ETSIDI::printxy("8", -1, 14);
+
+		ETSIDI::printxy("1", 16, 0);
+		ETSIDI::printxy("2", 16, 2);
+		ETSIDI::printxy("3", 16, 4);
+		ETSIDI::printxy("4", 16, 6);
+		ETSIDI::printxy("5", 16, 8);
+		ETSIDI::printxy("6", 16, 10);
+		ETSIDI::printxy("7", 16, 12);
+		ETSIDI::printxy("8", 16, 14);
 
 		ETSIDI::Sprite sp("bin/imagenes/cerrar_programa.png", 26.0f, 17.8f, 1.0f, 1.0f);
 		glPushMatrix();
