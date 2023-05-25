@@ -12,6 +12,18 @@ void Peon::dibuja()
 	glTranslatef(0, 0, 0.002);
 	sprite.draw();
 	glPopMatrix();
+
+	if (pintar) {
+		glPushMatrix();
+		glColor3ub(25, 150, 100);
+		glBegin(GL_POLYGON);
+		glVertex3f(pos.x + 1, pos.y + 1, 0.001f);
+		glVertex3f(pos.x + 1, pos.y - 1, 0.001f);
+		glVertex3f(pos.x - 1, pos.y - 1, 0.001f);
+		glVertex3f(pos.x - 1, pos.y + 1, 0.001f);
+		glEnd();
+		glPopMatrix();
+	}
 }
 
 bool Peon::mueve(VPosicion fin)
@@ -21,7 +33,7 @@ bool Peon::mueve(VPosicion fin)
 	if (color == 0)
 	{
 		// SOLO SE VA A MOVER EL PEON.
-		if (ListaFichas::Comprobar_Posicion(VPosicion{ fin }) == 32 && (fin == VPosicion{pos.x, pos.y + 2}) || (fin == VPosicion{ pos.x, pos.y + 4 }))
+		if (ListaFichas::Comprobar_Posicion(VPosicion{ fin }) == 32 && (fin == VPosicion{ pos.x, pos.y + 2 }) || (fin == VPosicion{ pos.x, pos.y + 4 }))
 		{
 			// MOVIMIENTO 1: máximo 2 casillas hacia delante 
 			if (pos.y == 3 && (fin.y == pos.y + 2 || fin.y == pos.y + 4) && fin.x == pos.x)
@@ -32,6 +44,7 @@ bool Peon::mueve(VPosicion fin)
 				if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y + 4) }) == 32 && fin == VPosicion{ pos.x,pos.y + 4 })
 				{
 					pos = fin;
+					pintar -= 1;
 					contmov++;
 					return true;
 				}
@@ -41,6 +54,7 @@ bool Peon::mueve(VPosicion fin)
 			{
 				if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y + 2) }) < 32)return false;
 				pos = fin;
+				pintar -= 1;
 				contmov++;
 				return true;
 			}
@@ -50,10 +64,11 @@ bool Peon::mueve(VPosicion fin)
 		// COMPROBAMOS SI SE QUIERE COMER AL PASO
 		if (fin.y == (pos.y + 2) && fin.x == (pos.x + 2) && ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2,pos.y }) < 32 && ListaFichas::Comprobar_Posicion(fin) == 32)
 		{
-			if (ListaFichas::Comer_al_paso1(VPosicion{pos.x + 2,pos.y }))
+			if (ListaFichas::Comer_al_paso1(VPosicion{ pos.x + 2,pos.y }))
 			{
 				ListaFichas::Matar(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2, pos.y }));
 				pos = fin;
+				pintar -= 1;
 				contmov++;
 				return true;
 			}
@@ -64,6 +79,7 @@ bool Peon::mueve(VPosicion fin)
 			{
 				ListaFichas::Matar(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2, pos.y }));
 				pos = fin;
+				pintar -= 1;
 				contmov++;
 				return true;
 			}
@@ -77,6 +93,7 @@ bool Peon::mueve(VPosicion fin)
 			{
 				ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
 				pos = fin;
+				pintar -= 1;
 				contmov++;
 				return true;
 			}
@@ -98,6 +115,7 @@ bool Peon::mueve(VPosicion fin)
 				if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y - 4) }) == 32 && VPosicion{ pos.x,pos.y - 4 } == fin)
 				{
 					pos = fin;
+					pintar -= 1;
 					contmov++;
 					return true;
 				}
@@ -107,6 +125,7 @@ bool Peon::mueve(VPosicion fin)
 			{
 				if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,(pos.y - 2) }) < 32)return false;
 				pos = fin;
+				pintar -= 1;
 				contmov++;
 				return true;
 			}
@@ -120,6 +139,7 @@ bool Peon::mueve(VPosicion fin)
 			{
 				ListaFichas::Matar(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2, pos.y }));
 				pos = fin;
+				pintar -= 1;
 				contmov++;
 				return true;
 			}
@@ -130,6 +150,7 @@ bool Peon::mueve(VPosicion fin)
 			{
 				ListaFichas::Matar(ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2, pos.y }));
 				pos = fin;
+				pintar -= 1;
 				contmov++;
 				return true;
 			}
@@ -142,6 +163,7 @@ bool Peon::mueve(VPosicion fin)
 			{
 				ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
 				pos = fin;
+				pintar -= 1;
 				contmov++;
 				return true;
 			}
