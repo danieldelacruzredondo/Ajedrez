@@ -117,14 +117,14 @@ void Coordinador::dibujar()
 		ETSIDI::printxy("G", 13, -1);
 		ETSIDI::printxy("H", 15, -1);
 
-		ETSIDI::printxy("1", -1, 0);
-		ETSIDI::printxy("2", -1, 2);
-		ETSIDI::printxy("3", -1, 4);
-		ETSIDI::printxy("4", -1, 6);
-		ETSIDI::printxy("5", -1, 8);
-		ETSIDI::printxy("6", -1, 10);
-		ETSIDI::printxy("7", -1, 12);
-		ETSIDI::printxy("8", -1, 14);
+		ETSIDI::printxy("1", -1, 1);
+		ETSIDI::printxy("2", -1, 3);
+		ETSIDI::printxy("3", -1, 5);
+		ETSIDI::printxy("4", -1, 7);
+		ETSIDI::printxy("5", -1, 9);
+		ETSIDI::printxy("6", -1, 11);
+		ETSIDI::printxy("7", -1, 13);
+		ETSIDI::printxy("8", -1, 15);
 
 		ETSIDI::Sprite sp("bin/imagenes/cerrar_programa.png", 26.0f, 17.8f, 1.0f, 1.0f);
 		glPushMatrix();
