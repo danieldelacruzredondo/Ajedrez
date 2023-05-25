@@ -12,6 +12,18 @@ void Torre::dibuja()
     glTranslatef(0, 0, 0.002);
     sprite.draw();
     glPopMatrix();
+
+    if (pintar) {
+        glPushMatrix();
+        glColor3ub(25, 150, 100);
+        glBegin(GL_POLYGON);
+        glVertex3f(pos.x + 1, pos.y + 1, 0.001f);
+        glVertex3f(pos.x + 1, pos.y - 1, 0.001f);
+        glVertex3f(pos.x - 1, pos.y - 1, 0.001f);
+        glVertex3f(pos.x - 1, pos.y + 1, 0.001f);
+        glEnd();
+        glPopMatrix();
+    }
 }
 
 
@@ -20,7 +32,7 @@ bool Torre::mueve(VPosicion fin)
 {
     float i;
 
-     // MOVIMIENTO DERECHA 
+    // MOVIMIENTO DERECHA 
     if (pos.x < fin.x && pos.y == fin.y)
     {
         for (i = 0; i <= fin.x; i += 2)
@@ -32,6 +44,7 @@ bool Torre::mueve(VPosicion fin)
                 {
                     ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
+                    pintar -= 1;
                     return true;
                 }
             }
@@ -41,6 +54,7 @@ bool Torre::mueve(VPosicion fin)
             if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2 + i,pos.y }) == 32 && fin == VPosicion{ pos.x + 2 + i,pos.y })
             {
                 pos = fin;
+                pintar -= 1;
                 return true;
             }
         }
@@ -59,6 +73,7 @@ bool Torre::mueve(VPosicion fin)
                 {
                     ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
+                    pintar -= 1;
                     return true;
                 }
             }
@@ -68,6 +83,7 @@ bool Torre::mueve(VPosicion fin)
             if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2 + i,pos.y }) == 32 && fin == VPosicion{ pos.x - 2 + i, pos.y })
             {
                 pos = fin;
+                pintar -= 1;
                 return true;
             }
 
@@ -86,6 +102,7 @@ bool Torre::mueve(VPosicion fin)
                 {
                     ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
+                    pintar -= 1;
                     return true;
                 }
             }
@@ -95,6 +112,7 @@ bool Torre::mueve(VPosicion fin)
             if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x, pos.y + 2 + i }) == 32 && fin == VPosicion{ pos.x, pos.y + 2 + i })
             {
                 pos = fin;
+                pintar -= 1;
                 return true;
             }
         }
@@ -113,6 +131,7 @@ bool Torre::mueve(VPosicion fin)
                 {
                     ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
+                    pintar -= 1;
                     return true;
                 }
             }
@@ -122,6 +141,7 @@ bool Torre::mueve(VPosicion fin)
             if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,pos.y - 2 + i }) == 32 && fin == VPosicion{ pos.x,pos.y - 2 + i })
             {
                 pos = fin;
+                pintar -= 1;
                 return true;
             }
         }
