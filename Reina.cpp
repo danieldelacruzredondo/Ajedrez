@@ -12,6 +12,18 @@ void Reina::dibuja()
     glTranslatef(0, 0, 0.002);
     sprite.draw();
     glPopMatrix();
+
+    if (pintar) {
+        glPushMatrix();
+        glColor3ub(25, 150, 100);
+        glBegin(GL_POLYGON);
+        glVertex3f(pos.x + 1, pos.y + 1, 0.001f);
+        glVertex3f(pos.x + 1, pos.y - 1, 0.001f);
+        glVertex3f(pos.x - 1, pos.y - 1, 0.001f);
+        glVertex3f(pos.x - 1, pos.y + 1, 0.001f);
+        glEnd();
+        glPopMatrix();
+    }
 }
 
 bool Reina::mueve(VPosicion fin)
@@ -30,15 +42,17 @@ bool Reina::mueve(VPosicion fin)
                 {
                     ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
+                    pintar -= 1;
                     return true;
                 }
             }
             //Comprobar si la casilla está ocupada
-            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2 + i,pos.y }) < 32 && VPosicion{ pos.x + 2 + i, pos.y} != fin)return false;
+            if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2 + i,pos.y }) < 32 && VPosicion{ pos.x + 2 + i, pos.y } != fin)return false;
             //Comprobar si puede moverse a la casilla
             if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x + 2 + i,pos.y }) == 32 && fin == VPosicion{ pos.x + 2 + i,pos.y })
             {
                 pos = fin;
+                pintar -= 1;
                 return true;
             }
         }
@@ -57,6 +71,7 @@ bool Reina::mueve(VPosicion fin)
                 {
                     ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
+                    pintar -= 1;
                     return true;
                 }
             }
@@ -66,6 +81,7 @@ bool Reina::mueve(VPosicion fin)
             if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x - 2 + i,pos.y }) == 32 && fin == VPosicion{ pos.x - 2 + i, pos.y })
             {
                 pos = fin;
+                pintar -= 1;
                 return true;
             }
 
@@ -84,6 +100,7 @@ bool Reina::mueve(VPosicion fin)
                 {
                     ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
+                    pintar -= 1;
                     return true;
                 }
             }
@@ -93,6 +110,7 @@ bool Reina::mueve(VPosicion fin)
             if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x, pos.y + 2 + i }) == 32 && fin == VPosicion{ pos.x, pos.y + 2 + i })
             {
                 pos = fin;
+                pintar -= 1;
                 return true;
             }
         }
@@ -111,6 +129,7 @@ bool Reina::mueve(VPosicion fin)
                 {
                     ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
+                    pintar -= 1;
                     return true;
                 }
             }
@@ -120,6 +139,7 @@ bool Reina::mueve(VPosicion fin)
             if (ListaFichas::Comprobar_Posicion(VPosicion{ pos.x,pos.y - 2 + i }) == 32 && fin == VPosicion{ pos.x,pos.y - 2 + i })
             {
                 pos = fin;
+                pintar -= 1;
                 return true;
             }
         }
@@ -141,6 +161,7 @@ bool Reina::mueve(VPosicion fin)
                 {
                     ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
+                    pintar -= 1;
                     return true;
                 }
             }
@@ -150,6 +171,7 @@ bool Reina::mueve(VPosicion fin)
             if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) }) == 32 && fin == VPosicion{ (pos.x + 2 + i),(pos.y + 2 + j) })
             {
                 pos = fin;
+                pintar -= 1;
                 return true;
             }
 
@@ -169,6 +191,7 @@ bool Reina::mueve(VPosicion fin)
                 {
                     ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
+                    pintar -= 1;
                     return true;
                 }
             }
@@ -178,6 +201,7 @@ bool Reina::mueve(VPosicion fin)
             if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) }) == 32 && fin == VPosicion{ (pos.x - 2 + i),(pos.y + 2 + j) })
             {
                 pos = fin;
+                pintar -= 1;
                 return true;
             }
 
@@ -198,6 +222,7 @@ bool Reina::mueve(VPosicion fin)
                 {
                     ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
+                    pintar -= 1;
                     return true;
                 }
             }
@@ -207,6 +232,7 @@ bool Reina::mueve(VPosicion fin)
             if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) }) == 32 && fin == VPosicion{ (pos.x + 2 + i),(pos.y - 2 + j) })
             {
                 pos = fin;
+                pintar -= 1;
                 return true;
             }
 
@@ -226,6 +252,7 @@ bool Reina::mueve(VPosicion fin)
                 {
                     ListaFichas::Matar(ListaFichas::Comprobar_Posicion(fin));
                     pos = fin;
+                    pintar -= 1;
                     return true;
                 }
             }
@@ -235,6 +262,7 @@ bool Reina::mueve(VPosicion fin)
             if (ListaFichas::Comprobar_Posicion(VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) }) == 32 && fin == VPosicion{ (pos.x - 2 + i),(pos.y - 2 + j) })
             {
                 pos = fin;
+                pintar -= 1;
                 return true;
             }
 
