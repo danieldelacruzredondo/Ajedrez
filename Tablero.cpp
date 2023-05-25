@@ -104,9 +104,9 @@ void Tablero::Pintar() {
 	}
 	
 	glBegin(GL_POLYGON);
-	glColor3ub(0, 0, 0);
+	glColor3ub(50, 50, 50);
 	glVertex3f(0.0f, 16.0f, 0.0f);
-	glColor3ub(0, 0, 0);
+	glColor3ub(50, 50, 50);
 	glVertex3f(16.0f, 16.0f, 0.0f);
 	glColor3ub(255, 255, 255);
 	glVertex3f(17.0f, 17.0f, 0.0f);
@@ -115,35 +115,35 @@ void Tablero::Pintar() {
 	glEnd();
 
 	glBegin(GL_POLYGON);
-	glColor3ub(0, 0, 0);
+	glColor3ub(50, 50, 50);
 	glVertex3f(16.0f, 16.0f, 0.0f);
 	glColor3ub(255, 255, 255);
 	glVertex3f(17.0f, 17.0f, 0.0f);
 	glColor3ub(255, 255, 255);
 	glVertex3f(17.0f, -1.0f, 0.0f);
-	glColor3ub(0, 0, 0);
+	glColor3ub(50, 50, 50);
 	glVertex3f(16.0f, 0.0f, 0.0f);
 	glEnd();
 
 	glBegin(GL_POLYGON);
-	glColor3ub(0, 0, 0);
+	glColor3ub(50, 50, 50);
 	glVertex3f(16.0f, 0.0f, 0.0f);
 	glColor3ub(255, 255, 255);
 	glVertex3f(17.0f, -1.0f, 0.0f);
 	glColor3ub(255, 255, 255);
 	glVertex3f(-1.0f, -1.0f, 0.0f);
-	glColor3ub(0, 0, 0);
+	glColor3ub(50, 50, 50);
 	glVertex3f(0.0f, 0.0f, 0.0f);
 	glEnd();
 
 	glBegin(GL_POLYGON);
-	glColor3ub(0, 0, 0);
+	glColor3ub(50, 50, 50);
 	glVertex3f(0.0f, 0.0f, 0.0f);
 	glColor3ub(255, 255, 255);
 	glVertex3f(-1.0f, -1.0f, 0.0f);
 	glColor3ub(255, 255, 255);
 	glVertex3f(-1.0f, 17.0f, 0.0f);
-	glColor3ub(0, 0, 0);
+	glColor3ub(50, 50, 50);
 	glVertex3f(0.0f, 16.0f, 0.0f);
 	glEnd();
 
