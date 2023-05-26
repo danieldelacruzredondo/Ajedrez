@@ -87,12 +87,11 @@ void ListaFichas::ElegirFicha(VPosicion cas)
 	{
 		if (casillafi < 32) listafichas[casillafi]->setPintarCasilla();
 		casillafi = Comprobar_Posicion(cas);
-
+		ETSIDI::playMusica("bin/sonidos/sonidos_Seleccion_casilla.mp3");
 		listafichas[Comprobar_Posicion(cas)]->setPintarCasilla();
 	}
 	if (casillafi < NumMax)
 	{
-		ETSIDI::playMusica("bin/sonidos/sonidos_Seleccion_casilla.mp3");
 		if (listafichas[casillafi]->mueve(cas))
 		{
 			turno = turno - 1;
